@@ -1,7 +1,7 @@
 
 import json
 
-from pharmacology_comparison import extract_btk_ic50
+from src.analysis.pharmacology_comparison import extract_btk_ic50
 from integrated_research_report import (
     build_integrated_research_report,
 )

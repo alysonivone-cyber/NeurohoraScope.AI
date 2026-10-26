@@ -4,7 +4,7 @@ import json
 from integrated_research_report import (
     build_integrated_research_report,
 )
-from molecular_selectivity import extract_target_profile
+from src.analysis.molecular_selectivity import extract_target_profile
 from assay_classifier import classify_assay
 
 
