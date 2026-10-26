@@ -1,0 +1,18 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+.vscode/
+*.db
+*.db-journal
+# Local scientific data and generated outputs
+cache/
+reports/
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Local Medicodex dataset
+data/medicodex.json
