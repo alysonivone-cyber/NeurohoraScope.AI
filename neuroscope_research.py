@@ -1,5 +1,5 @@
 
-from pubmed_client import search_pubmed
+from src.clients.pubmed_client import search_pubmed
 from scientific_analyzer import detect_mechanisms
 from database import (
     initialize_database,

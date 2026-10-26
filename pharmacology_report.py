@@ -1,5 +1,5 @@
 
-from chembl_client import (
+from src.clients.chembl_client import (
     search_chembl_molecule,
     get_chembl_mechanisms,
     get_chembl_target,

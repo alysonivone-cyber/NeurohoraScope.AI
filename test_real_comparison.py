@@ -5,7 +5,7 @@ import json
 from integrated_research_report import (
     build_integrated_research_report,
 )
-from molecular_comparison import compare_molecules
+from src.analysis.molecular_comparison import compare_molecules
 from pathlib import Path
 from datetime import datetime, timezone
 from pharmacology_comparison import extract_btk_ic50

@@ -1,5 +1,5 @@
 
-from pubmed_client import search_pubmed
+from src.clients.pubmed_client import search_pubmed
 
 
 def main():

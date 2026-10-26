@@ -1,5 +1,5 @@
 
-from clinical_trials_client import filter_trials_by_disease
+from src.clients.clinical_trials_client import filter_trials_by_disease
 
 
 def main():

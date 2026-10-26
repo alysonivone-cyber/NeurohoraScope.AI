@@ -2,7 +2,7 @@
 from pathlib import Path
 import json
 
-from evidence_assessment import assess_evidence
+from src.analysis.evidence_assessment import assess_evidence
 
 
 def detect_research_gaps(report):

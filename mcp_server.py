@@ -5,15 +5,15 @@ from database import (
     initialize_database,
     save_publications,
 )
-from pubmed_client import search_pubmed
+from src.clients.pubmed_client import search_pubmed
 from scientific_analyzer import detect_mechanisms
 from search_engine import (
     search_diseases as local_search_diseases,
     get_disease_molecules as local_get_disease_molecules,
 )
-from clinical_trials_client import search_clinical_trials as clinical_trials_search
+from src.clients.clinical_trials_client import search_clinical_trials as clinical_trials_search
 from molecule_research import research_molecule as molecule_search
-from chembl_client import (
+from src.clients.chembl_client import (
     search_chembl_molecule,
     get_chembl_mechanisms,
     get_chembl_target,

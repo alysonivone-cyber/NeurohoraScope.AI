@@ -2,7 +2,7 @@
 import json
 import re
 
-from pubmed_client import search_pubmed
+from src.clients.pubmed_client import search_pubmed
 
 
 def safe_pubmed_term(value):

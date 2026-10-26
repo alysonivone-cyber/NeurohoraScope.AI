@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from collections import Counter
 
-from experimental_comparability import (
+from src.analysis.experimental_comparability import (
     assess_experimental_comparability,
 )
 

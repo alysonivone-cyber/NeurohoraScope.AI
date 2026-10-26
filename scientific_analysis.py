@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 import json
 
-from evidence_assessment import assess_evidence
+from src.analysis.evidence_assessment import assess_evidence
 from research_gap_detector import detect_research_gaps
 
 
