@@ -6,7 +6,7 @@ from database import (
     save_publications,
 )
 from src.clients.pubmed_client import search_pubmed
-from scientific_analyzer import detect_mechanisms
+from src.analysis.scientific_analyzer import detect_mechanisms
 from search_engine import (
     search_diseases as local_search_diseases,
     get_disease_molecules as local_get_disease_molecules,

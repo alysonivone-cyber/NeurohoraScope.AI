@@ -1,6 +1,6 @@
 
 import json
-from scientific_analysis import generate_scientific_analysis
+from src.analysis.scientific_analysis import generate_scientific_analysis
 from pathlib import Path
 from xml.sax.saxutils import escape
 
