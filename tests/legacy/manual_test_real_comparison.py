@@ -2,14 +2,14 @@
 import json
 
 
-from integrated_research_report import (
+from src.analysis.integrated_research_report import (
     build_integrated_research_report,
 )
 from src.analysis.molecular_comparison import compare_molecules
 from pathlib import Path
 from datetime import datetime, timezone
 from src.analysis.pharmacology_comparison import extract_btk_ic50
-from comparison_reliability import assess_comparison_reliability
+from src.analysis.comparison_reliability import assess_comparison_reliability
 
 
 def main():

@@ -3,7 +3,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from integrated_research_report import (
+from src.analysis.integrated_research_report import (
     build_integrated_research_report,
 )
 

@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 import json
 
 from src.analysis.evidence_assessment import assess_evidence
-from research_gap_detector import detect_research_gaps
+from src.analysis.research_gap_detector import detect_research_gaps
 
 
 def generate_scientific_analysis(report):

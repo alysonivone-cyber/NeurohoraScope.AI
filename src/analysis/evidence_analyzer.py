@@ -2,7 +2,7 @@
 import re
 import sqlite3
 
-from database import DATABASE_NAME
+from src.storage.database import DATABASE_NAME
 
 
 EVIDENCE_PATTERNS = {

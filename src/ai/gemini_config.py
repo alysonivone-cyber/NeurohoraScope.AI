@@ -21,7 +21,7 @@ def get_gemini_config():
         "api_key_configured": configured,
         "model": os.getenv(
             "GEMINI_MODEL",
-            "gemini-3.8-flash",
+            "gemini-3.1-flash-lite",
         ),
     }
 

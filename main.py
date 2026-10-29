@@ -1,7 +1,7 @@
 
 import requests
 import xml.etree.ElementTree as ET
-from database import initialize_database, save_publications, count_publications
+from src.storage.database import initialize_database, save_publications, count_publications
 
 # NeuroScope.AI - Scientific Research Engine
 # Phase 2: Collecte des publications et abstracts

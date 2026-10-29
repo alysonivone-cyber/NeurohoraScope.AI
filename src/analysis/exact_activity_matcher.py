@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 from decimal import Decimal, InvalidOperation
-from chembl_cache import cached_chembl_get
+from src.storage.chembl_cache import cached_chembl_get
 import requests
 import time
 

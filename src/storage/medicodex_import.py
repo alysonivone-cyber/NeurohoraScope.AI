@@ -3,9 +3,9 @@ import json
 import sqlite3
 from pathlib import Path
 
-from database import DATABASE_NAME, initialize_database
+from src.storage.database import DATABASE_NAME, initialize_database
 
-DATA_FILE = Path(__file__).parent / "data" / "medicodex.json"
+DATA_FILE = Path(__file__).resolve().parents[2] / "data" / "medicodex.json"
 
 
 def import_medicodex():

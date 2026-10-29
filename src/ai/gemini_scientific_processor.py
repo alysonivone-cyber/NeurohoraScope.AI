@@ -8,10 +8,14 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
+from src.ai.validation import (
+    validate_gemini_records,
+    validate_potency_descriptions,
+)
 
 load_dotenv()
 
-MODEL = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 
 def analyze_scientific_data(records):
@@ -88,7 +92,8 @@ Input records:
     if not isinstance(result.get("records"), list):
         raise ValueError("Gemini response has no records list.")
 
-    return result
+    validated = validate_gemini_records(records, result)
+    return validate_potency_descriptions(validated)
 
 
 def main():

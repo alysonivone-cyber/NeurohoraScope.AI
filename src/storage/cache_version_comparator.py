@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 
-from chembl_cache import CACHE_DIR, cache_key
+from src.storage.chembl_cache import CACHE_DIR, cache_key
 
 
 HISTORY_DIR = Path("cache/chembl_history")

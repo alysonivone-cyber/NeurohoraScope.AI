@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 
-from comparability_summary import (
+from src.analysis.comparability_summary import (
     build_comparability_summary,
 )
 

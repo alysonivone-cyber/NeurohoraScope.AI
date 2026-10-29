@@ -1,7 +1,7 @@
 
 import json
 
-from assay_metadata import get_assay_metadata
+from src.analysis.assay_metadata import get_assay_metadata
 
 
 BAO_FORMATS = {

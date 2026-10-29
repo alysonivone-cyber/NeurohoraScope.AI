@@ -3,10 +3,10 @@ import json
 from pathlib import Path
 from datetime import datetime, timezone
 
-from integrated_research_report import (
+from src.analysis.integrated_research_report import (
     build_integrated_research_report,
 )
-from experimental_context import build_experimental_context
+from src.analysis.experimental_context import build_experimental_context
 
 
 def build_experimental_matrix(report_a, report_b):

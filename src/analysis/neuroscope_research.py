@@ -1,7 +1,7 @@
 
 from src.clients.pubmed_client import search_pubmed
 from src.analysis.scientific_analyzer import detect_mechanisms
-from database import (
+from src.storage.database import (
     initialize_database,
     save_publications,
     count_publications,

@@ -16,3 +16,14 @@ reports/
 
 # Local Medicodex dataset
 data/medicodex.json
+# Sauvegardes et fichiers temporaires
+*.backup
+*.bak
+*.tmp
+*.log
+
+# Secrets et certificats
+.env.*
+!.env.example
+*.pem
+*.key

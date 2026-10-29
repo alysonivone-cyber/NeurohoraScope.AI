@@ -1,10 +1,10 @@
 
 import json
 
-from pharmacology_report import build_pharmacology_report
-from molecule_research import research_molecule
-from trial_relevance import is_relevant_trial
-from molecule_literature import research_molecule_literature
+from src.analysis.pharmacology_report import build_pharmacology_report
+from src.analysis.molecule_research import research_molecule
+from src.analysis.trial_relevance import is_relevant_trial
+from src.analysis.molecule_literature import research_molecule_literature
 
 def build_integrated_research_report(
     molecule_name,

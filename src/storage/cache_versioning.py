@@ -9,7 +9,7 @@ from pathlib import Path
 
 import requests
 
-from chembl_cache import CACHE_DIR, cache_key
+from src.storage.chembl_cache import CACHE_DIR, cache_key
 
 
 API = (

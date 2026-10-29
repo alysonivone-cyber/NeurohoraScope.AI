@@ -5,8 +5,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from chembl_cache import CACHE_DIR, cache_key
-from cache_version_comparator import compare_versions
+from src.storage.chembl_cache import CACHE_DIR, cache_key
+from src.storage.cache_version_comparator import compare_versions
 
 
 API = (

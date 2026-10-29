@@ -2,7 +2,7 @@
 import json
 import requests
 
-from trial_relevance import is_relevant_trial
+from src.analysis.trial_relevance import is_relevant_trial
 
 
 API_URL = "https://clinicaltrials.gov/api/v2/studies"

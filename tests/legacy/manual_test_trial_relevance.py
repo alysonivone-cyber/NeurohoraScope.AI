@@ -1,5 +1,5 @@
 
-from trial_relevance import is_relevant_trial
+from src.analysis.trial_relevance import is_relevant_trial
 
 
 def test_relevant_ms():

@@ -1,7 +1,7 @@
 
 import json
 
-from integrated_research_report import (
+from src.analysis.integrated_research_report import (
     build_integrated_research_report,
 )
 from src.analysis.molecular_selectivity import extract_target_profile

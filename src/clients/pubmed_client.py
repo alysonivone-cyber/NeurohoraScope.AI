@@ -5,7 +5,7 @@ import logging
 import requests
 import xml.etree.ElementTree as ET
 
-from database import initialize_database, save_publications, count_publications
+from src.storage.database import initialize_database, save_publications, count_publications
 
 
 BASE_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
