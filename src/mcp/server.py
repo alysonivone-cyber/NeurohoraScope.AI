@@ -53,13 +53,61 @@ from src.analysis.integrated_research_report import (
 
 def create_mcp_server():
     """Configure le serveur MCP selon son environnement."""
+
     if os.getenv("MCP_EXTERNAL_AUTH", "false").lower() == "true":
         if os.getenv("MCP_REQUIRE_AUTH", "").lower() != "true":
             raise RuntimeError("Authentification externe non activee.")
-        return FastMCP("NeurohoraScope.AI")
+
+        public_url = os.getenv("MCP_PUBLIC_URL", "").strip()
+        parsed_url = urlparse(public_url)
+
+        if parsed_url.scheme != "https" or not parsed_url.hostname:
+            raise RuntimeError("MCP_PUBLIC_URL doit etre une URL HTTPS valide.")
+
+    hostname = parsed_url.hostname
+
+    transport_security = TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=[
+            hostname,
+            f"{hostname}:443",
+            "127.0.0.1:*",
+            "localhost:*",
+            "[::1]:*",
+        ],
+        allowed_origins=[
+            f"https://{hostname}",
+            "http://127.0.0.1:*",
+            "http://localhost:*",
+            "http://[::1]:*",
+        ],
+    )
+
+    return FastMCP(
+        "NeurohoraScope.AI",
+        transport_security=transport_security,
+    )
 
     if os.getenv("MCP_REQUIRE_AUTH", "false").lower() != "true":
-        return FastMCP("NeurohoraScope.AI")
+                return FastMCP(
+            "NeurohoraScope.AI",
+            transport_security=TransportSecuritySettings(
+                enable_dns_rebinding_protection=True,
+                allowed_hosts=[
+                    "neurohorascope-ai.onrender.com",
+                    "neurohorascope-ai.onrender.com:443",
+                    "localhost:*",
+                    "127.0.0.1:*",
+                    "[::1]:*",
+                ],
+                allowed_origins=[
+                    "https://neurohorascope-ai.onrender.com",
+                    "http://localhost:*",
+                    "http://127.0.0.1:*",
+                    "http://[::1]:*",
+                ],
+            ),
+        )
 
     from mcp.server.auth.settings import AuthSettings
     from src.mcp.auth import NeurohoraTokenVerifier
