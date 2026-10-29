@@ -13,6 +13,12 @@ def main():
         host = os.getenv("MCP_HOST", "127.0.0.1")
         port = int(os.getenv("PORT", "8000"))
 
+        if host not in ("127.0.0.1", "localhost", "::1"):
+            if os.getenv("MCP_REQUIRE_AUTH", "").lower() != "true":
+                raise RuntimeError(
+                    "Authentification obligatoire pour un serveur MCP public."
+                )
+
         mcp.settings.host = host
         mcp.settings.port = port
 
