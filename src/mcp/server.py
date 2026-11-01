@@ -60,54 +60,19 @@ def create_mcp_server():
 
         public_url = os.getenv("MCP_PUBLIC_URL", "").strip()
         parsed_url = urlparse(public_url)
-
         if parsed_url.scheme != "https" or not parsed_url.hostname:
             raise RuntimeError("MCP_PUBLIC_URL doit etre une URL HTTPS valide.")
 
-    hostname = parsed_url.hostname
-
-    transport_security = TransportSecuritySettings(
-        enable_dns_rebinding_protection=True,
-        allowed_hosts=[
-            hostname,
-            f"{hostname}:443",
-            "127.0.0.1:*",
-            "localhost:*",
-            "[::1]:*",
-        ],
-        allowed_origins=[
-            f"https://{hostname}",
-            "http://127.0.0.1:*",
-            "http://localhost:*",
-            "http://[::1]:*",
-        ],
-    )
-
-    return FastMCP(
-        "NeurohoraScope.AI",
-        transport_security=transport_security,
-    )
+        hostname = parsed_url.hostname
+        security = TransportSecuritySettings(
+            enable_dns_rebinding_protection=True,
+            allowed_hosts=[hostname, f"{hostname}:443", "localhost:*", "127.0.0.1:*", "[::1]:*"],
+            allowed_origins=[f"https://{hostname}", "http://localhost:*", "http://127.0.0.1:*", "http://[::1]:*"],
+        )
+        return FastMCP("NeurohoraScope.AI", transport_security=security)
 
     if os.getenv("MCP_REQUIRE_AUTH", "false").lower() != "true":
-                return FastMCP(
-            "NeurohoraScope.AI",
-            transport_security=TransportSecuritySettings(
-                enable_dns_rebinding_protection=True,
-                allowed_hosts=[
-                    "neurohorascope-ai.onrender.com",
-                    "neurohorascope-ai.onrender.com:443",
-                    "localhost:*",
-                    "127.0.0.1:*",
-                    "[::1]:*",
-                ],
-                allowed_origins=[
-                    "https://neurohorascope-ai.onrender.com",
-                    "http://localhost:*",
-                    "http://127.0.0.1:*",
-                    "http://[::1]:*",
-                ],
-            ),
-        )
+        return FastMCP("NeurohoraScope.AI")
 
     from mcp.server.auth.settings import AuthSettings
     from src.mcp.auth import NeurohoraTokenVerifier
@@ -115,40 +80,25 @@ def create_mcp_server():
     public_url = os.getenv("MCP_PUBLIC_URL", "").strip()
     access_token = os.getenv("MCP_ACCESS_TOKEN", "").strip()
     issuer_url = os.getenv("MCP_ISSUER_URL", "").strip()
-
     if not public_url.startswith("https://"):
         raise RuntimeError("MCP_PUBLIC_URL doit etre une URL HTTPS.")
-
     if not issuer_url.startswith("https://"):
         raise RuntimeError("MCP_ISSUER_URL doit etre une URL HTTPS.")
-
     if len(access_token) < 32:
         raise RuntimeError("MCP_ACCESS_TOKEN doit contenir au moins 32 caracteres.")
 
     hostname = urlparse(public_url).hostname
-
     if not hostname:
         raise RuntimeError("Domaine MCP_PUBLIC_URL invalide.")
 
-    transport_security = TransportSecuritySettings(
+    security = TransportSecuritySettings(
         enable_dns_rebinding_protection=True,
-        allowed_hosts=[
-            hostname,
-            "127.0.0.1:*",
-            "localhost:*",
-            "[::1]:*",
-        ],
-        allowed_origins=[
-            f"https://{hostname}",
-            "http://127.0.0.1:*",
-            "http://localhost:*",
-            "http://[::1]:*",
-        ],
+        allowed_hosts=[hostname, f"{hostname}:443", "localhost:*", "127.0.0.1:*", "[::1]:*"],
+        allowed_origins=[f"https://{hostname}", "http://127.0.0.1:*", "http://localhost:*", "http://[::1]:*"],
     )
-
     return FastMCP(
         "NeurohoraScope.AI",
-        transport_security=transport_security,
+        transport_security=security,
         token_verifier=NeurohoraTokenVerifier(),
         auth=AuthSettings(
             issuer_url=issuer_url,
