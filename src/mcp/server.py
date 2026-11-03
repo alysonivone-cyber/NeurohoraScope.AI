@@ -352,10 +352,23 @@ def analyze_scientific_evidence_with_gemini(
         }
 
     project_root = Path(__file__).resolve().parents[2]
-    report_path = (
+
+    local_report = (
         project_root
         / "reports"
         / "exact_activity_matches.json"
+    )
+
+    deployed_report = (
+        project_root
+        / "deploy_data"
+        / "exact_activity_matches.json"
+    )
+
+    report_path = (
+        local_report
+        if local_report.is_file()
+        else deployed_report
     )
 
     if not report_path.is_file():

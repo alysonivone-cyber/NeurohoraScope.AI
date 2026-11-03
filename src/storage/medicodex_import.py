@@ -5,8 +5,16 @@ from pathlib import Path
 
 from src.storage.database import DATABASE_NAME, initialize_database
 
-DATA_FILE = Path(__file__).resolve().parents[2] / "data" / "medicodex.json"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
+LOCAL_DATA_FILE = PROJECT_ROOT / "data" / "medicodex.json"
+DEPLOY_DATA_FILE = PROJECT_ROOT / "deploy_data" / "medicodex.json"
+
+DATA_FILE = (
+    LOCAL_DATA_FILE
+    if LOCAL_DATA_FILE.is_file()
+    else DEPLOY_DATA_FILE
+)
 
 def import_medicodex():
     """Importe les maladies et molécules depuis un export JSON."""

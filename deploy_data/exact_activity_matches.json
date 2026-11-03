@@ -1,0 +1,128 @@
+[
+  {
+    "molecule": "Orelabrutinib",
+    "target": "Tyrosine-protein kinase BTK",
+    "assay_chembl_id": "CHEMBL5242619",
+    "ic50_nM": 1.6,
+    "match_status": "EXACT_MATCH",
+    "match_count": 1,
+    "matches": [
+      {
+        "activity_id": 25033556,
+        "molecule_chembl_id": "CHEMBL4650321",
+        "assay_chembl_id": "CHEMBL5242619",
+        "document_chembl_id": "CHEMBL5241098",
+        "standard_value": "1.6",
+        "standard_units": "nM"
+      }
+    ]
+  },
+  {
+    "molecule": "Orelabrutinib",
+    "target": "Tyrosine-protein kinase BTK",
+    "assay_chembl_id": "CHEMBL5251905",
+    "ic50_nM": 20.0,
+    "match_status": "EXACT_MATCH",
+    "match_count": 1,
+    "matches": [
+      {
+        "activity_id": 25067002,
+        "molecule_chembl_id": "CHEMBL4650321",
+        "assay_chembl_id": "CHEMBL5251905",
+        "document_chembl_id": "CHEMBL5247657",
+        "standard_value": "20.0",
+        "standard_units": "nM"
+      }
+    ]
+  },
+  {
+    "molecule": "Orelabrutinib",
+    "target": "Epidermal growth factor receptor",
+    "assay_chembl_id": "CHEMBL5251928",
+    "ic50_nM": 5900.0,
+    "match_status": "EXACT_MATCH",
+    "match_count": 1,
+    "matches": [
+      {
+        "activity_id": 25067049,
+        "molecule_chembl_id": "CHEMBL4650321",
+        "assay_chembl_id": "CHEMBL5251928",
+        "document_chembl_id": "CHEMBL5247657",
+        "standard_value": "5900.0",
+        "standard_units": "nM"
+      }
+    ]
+  },
+  {
+    "molecule": "Orelabrutinib",
+    "target": "Tyrosine-protein kinase Tec",
+    "assay_chembl_id": "CHEMBL5251929",
+    "ic50_nM": 37.2,
+    "match_status": "EXACT_MATCH",
+    "match_count": 1,
+    "matches": [
+      {
+        "activity_id": 25067059,
+        "molecule_chembl_id": "CHEMBL4650321",
+        "assay_chembl_id": "CHEMBL5251929",
+        "document_chembl_id": "CHEMBL5247657",
+        "standard_value": "37.2",
+        "standard_units": "nM"
+      }
+    ]
+  },
+  {
+    "molecule": "Tolebrutinib",
+    "target": "Tyrosine-protein kinase BTK",
+    "assay_chembl_id": "CHEMBL4714265",
+    "ic50_nM": 0.7,
+    "match_status": "EXACT_MATCH",
+    "match_count": 1,
+    "matches": [
+      {
+        "activity_id": 22813281,
+        "molecule_chembl_id": "CHEMBL4650323",
+        "assay_chembl_id": "CHEMBL4714265",
+        "document_chembl_id": "CHEMBL4706695",
+        "standard_value": "0.7",
+        "standard_units": "nM"
+      }
+    ]
+  },
+  {
+    "molecule": "Tolebrutinib",
+    "target": "Tyrosine-protein kinase BTK",
+    "assay_chembl_id": "CHEMBL5043203",
+    "ic50_nM": 1.0,
+    "match_status": "EXACT_MATCH",
+    "match_count": 1,
+    "matches": [
+      {
+        "activity_id": 24398441,
+        "molecule_chembl_id": "CHEMBL4650323",
+        "assay_chembl_id": "CHEMBL5043203",
+        "document_chembl_id": "CHEMBL5042486",
+        "standard_value": "1.0",
+        "standard_units": "nM"
+      }
+    ]
+  },
+  {
+    "molecule": "Tolebrutinib",
+    "target": "Early activation antigen CD69",
+    "assay_chembl_id": "CHEMBL5043205",
+    "ic50_nM": 200.0,
+    "match_status": "EXACT_MATCH",
+    "match_count": 1,
+    "matches": [
+      {
+        "activity_id": 24398498,
+        "molecule_chembl_id": "CHEMBL4650323",
+        "assay_chembl_id": "CHEMBL5043205",
+        "document_chembl_id": "CHEMBL5042486",
+        "standard_value": "200.0",
+        "standard_units": "nM"
+      }
+    ]
+  }
+]
