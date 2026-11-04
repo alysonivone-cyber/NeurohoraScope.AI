@@ -2,9 +2,9 @@
 
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
-**Version documentaire :** 1.1
-**Date :** 29 octobre 2026
-**Statut :** Implémentation locale testée — validation scientifique partielle — déploiement distant non réalisé
+**Version documentaire :** 1.2
+**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Statut :** Gemini validé en local — désactivé sur MCP public
 
 ## 1. Objectif
 
@@ -271,3 +271,24 @@ SPEC-004 sera considérée comme entièrement validée lorsque :
 - L'outil aura été vérifié dans l'environnement de déploiement retenu.
 
 **Conclusion :** l'intégration Gemini-MCP est fonctionnelle dans les scénarios locaux testés. La validation déterministe et un contrôle sémantique ciblé sont implémentés. La validation scientifique exhaustive et le déploiement distant restent hors du périmètre actuellement vérifié.
+
+---
+
+## 14. Validation Gemini réelle — 4 novembre 2026
+
+### Exécution locale confirmée
+
+- Environnement : Python 3.13.17, clé `GEMINI_API_KEY` présente dans `.env` (valeur jamais affichée).
+- Modèle effectivement appelé dans les journaux : `gemini-3.1-flash-lite` ; réponse HTTP **200 OK** de l'API Google.
+- Premier appel : réponse rejetée par `validate_potency_descriptions` pour la contradiction « IC50 = 1.6 nM » / « sub-nanomolar ». Le rejet est **un succès du garde-fou**, mais le résultat applicatif de ce premier appel était `status: error`.
+- Modification du prompt dans `src/ai/gemini_scientific_processor.py` : « sub-nanomolar » autorisé seulement pour IC50 strictement inférieure à 1 nM ; préservation du contexte expérimental et prudence dans les classifications. La logique de `src/ai/validation.py` n'a pas été désactivée.
+- Deuxième appel : **`status: success`**, deux observations Orelabrutinib / Tyrosine-protein kinase BTK, `CHEMBL5242619` à **1,6 nM** et `CHEMBL5251905` à **20,0 nM**, avec limites scientifiques. Les deux fonctions de validation ont laissé passer la réponse.
+- Correctif publié dans le commit Git `1f7216f` et déployé sur Render le 4 novembre 2026.
+
+### Contrat et mode public
+
+Le résultat applicatif observé contient `status`, `project`, `source`, `records_analyzed`, `scientific_analysis` (dont `research_domain`, `records`, `scientific_limitations`) et `scientific_note`. L'outil MCP public est **désactivé intentionnellement** lorsque `MCP_PUBLIC_DEMO=true` et retourne alors `status: disabled` avec un message explicite. Il demeure découvrable parmi les 12 outils, mais n'exécute pas d'appel Gemini sur Render.
+
+### Portée exacte
+
+La réussite locale prouve le fonctionnement de l'appel à l'API et des validations **sur deux enregistrements** ; elle ne démontre ni la fiabilité générale des analyses IA ni l'exécution de Gemini depuis un client MCP distant. Les tests de réponses malformées, erreurs réseau/quota, cas scientifiques atypiques et traçabilité exhaustive restent à effectuer. Les contrôles sémantiques restent ciblés et non exhaustifs.

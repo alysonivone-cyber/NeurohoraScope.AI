@@ -2,9 +2,9 @@
 
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
-**Version documentaire :** 1.0
-**Date :** 29 octobre 2026
-**Statut :** Architecture implémentée — validation fonctionnelle partielle
+**Version documentaire :** 1.2
+**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Statut :** Rapports MCP testés sur scénarios réels — comparabilité et exports à auditer
 
 ## 1. Objectif
 
@@ -293,3 +293,21 @@ SPEC-003 pourra être considérée comme entièrement validée lorsque :
 - Les conclusions respecteront les contraintes scientifiques définies.
 
 **Conclusion :** NeurohoraScope.AI dispose d'une architecture étendue d'analyse pharmacologique et de reporting. Une validation fonctionnelle détaillée reste nécessaire avant de considérer l'ensemble de ces capacités comme scientifiquement vérifiées.
+
+---
+
+## 15. Mise à jour des analyses et rapports — 4 novembre 2026
+
+### Rapports effectivement invoqués via MCP
+
+- `generate_pharmacology_report` avec `molecule_name="Levodopa"` : réponse applicative `status: success` ; agrégation de données moléculaires ChEMBL, annotations de mécanisme, cible et activités. Ce rapport n'effectue pas en lui-même une génération Gemini.
+- `generate_integrated_research_report` avec Levodopa et Parkinson : réponse structurée combinant pharmacologie ChEMBL, publications PubMed et essais ClinicalTrials.gov, avec avertissements scientifiques. Les résultats sont filtrés et ne constituent pas une revue systématique.
+- `get_molecule_bioactivities` pour `CHEMBL1009` : des enregistrements de nature hétérogène ont été retournés (IC50, Ki et autres mesures physicochimiques ou pharmacocinétiques) ; ne pas qualifier indistinctement toutes les entrées de mesures de puissance pharmacologique comparables.
+
+### Contrôle scientifique illustratif
+
+Gemini a traité localement deux observations **Orelabrutinib / BTK**, issues des essais `CHEMBL5242619` (IC50 1,6 nM) et `CHEMBL5251905` (IC50 20,0 nM). Les valeurs ont été conservées et la réponse a distingué les mesures des limites d'interprétation. Un essai antérieur avait été rejeté à juste titre pour une description « sub-nanomolar » incorrecte de 1,6 nM. La règle de validation a été maintenue et le prompt renforcé.
+
+### Non encore démontré exhaustivement
+
+Comparabilité entre essais, sélectivité, exports Markdown/PDF, qualité de toutes les annotations mécanistiques, reproductibilité complète et cas limites des rapports restent à auditer. Les réponses MCP fonctionnelles ne prouvent pas à elles seules la validation scientifique de tous les modules de `src/analysis/` et `src/reporting/`.

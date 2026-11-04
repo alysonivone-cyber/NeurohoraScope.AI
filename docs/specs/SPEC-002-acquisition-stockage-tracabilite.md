@@ -2,9 +2,9 @@
 
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
-**Version documentaire :** 1.0
-**Date :** 29 octobre 2026
-**Statut :** Architecture identifiée — validation fonctionnelle partielle
+**Version documentaire :** 1.2
+**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Statut :** Acquisition externe et Medicodex testés — stockage/cache/provenance à auditer
 
 ## 1. Objectif
 
@@ -255,3 +255,19 @@ SPEC-002 pourra être considérée comme entièrement validée lorsque :
 - Les erreurs des services externes seront correctement prises en charge.
 
 **Conclusion :** l'architecture d'acquisition, de stockage et de provenance est présente dans NeurohoraScope.AI. La validation complète de son comportement nécessite des tests ciblés supplémentaires.
+
+---
+
+## 13. Mise à jour des vérifications — 4 novembre 2026
+
+### Scénarios fonctionnels observés
+
+- **PubMed :** `search_neuroscience_literature` invoqué depuis Claude via le MCP public après le déploiement `1f7216f` ; trois publications sur Parkinson, avec titres, PMID `38598580`, `31295812`, `41152735` et URL PubMed.
+- **ChEMBL :** consultation de Levodopa (`CHEMBL1009`), de mécanismes annotés, de la cible DRD3 (`CHEMBL234`) et de résultats d'activité ; les annotations de mécanisme ne doivent pas être confondues avec une preuve mécanistique ou clinique définitive.
+- **ClinicalTrials.gov :** recherche d'essais sur Parkinson et sur Levodopa fonctionnelle dans les scénarios testés ; les réponses sont limitées/filtrées et ne représentent pas nécessairement l'ensemble des études.
+- **Medicodex :** base locale consultable ; huit maladies et 195 associations maladie-molécule observées lors des contrôles précédents. La recherche `Alzheimer` renvoie une entrée ; Parkinson ne figure pas dans le jeu de huit maladies examiné. L'absence de résultat n'est donc pas une panne de recherche.
+- **Données pour Gemini :** `reports/exact_activity_matches.json` et `deploy_data/exact_activity_matches.json` présents localement, chacun avec sept observations au moment du contrôle. Le processeur sélectionne le fichier local en priorité.
+
+### Limites de validation
+
+Les tests confirment l'accès et des réponses réelles pour ces cas, **pas** l'exhaustivité des clients, la fraîcheur et la déduplication SQLite, l'invalidation des caches, la provenance complète ni les scénarios de panne réseau. Les cases historiques du 29 octobre restent des instantanés et ne doivent pas être interprétées comme le statut final du 4 novembre.

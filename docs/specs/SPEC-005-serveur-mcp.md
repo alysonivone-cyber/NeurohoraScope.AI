@@ -2,9 +2,9 @@
 
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
-**Version documentaire :** 1.1
-**Date :** 29 octobre 2026
-**Statut :** Serveur MCP local validé — sécurité distante et déploiement à réaliser
+**Version documentaire :** 1.2
+**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Statut :** Serveur MCP HTTPS Live et testé avec Claude — mode public non authentifié
 
 ## 1. Objectif
 
@@ -223,7 +223,7 @@ Les protections d'hôtes et d'origines ne remplacent pas une authentification.
 
 ## 11. Résultats des tests locaux
 
-**Date :** 29 octobre 2026
+**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
 
 **Tests automatisés :** 15 exécutés, 15 réussis.
 
@@ -287,3 +287,37 @@ SPEC-005 sera considérée comme entièrement validée lorsque :
 - Les tests d'intégration et de sécurité auront été exécutés avec succès.
 
 **Conclusion :** le serveur MCP de NeurohoraScope.AI est fonctionnel et testé localement avec les transports stdio et Streamable HTTP. Son exposition distante nécessite encore une authentification, des contrôles de sécurité et une validation en production.
+
+---
+
+## 15. Déploiement et validation distante — 4 novembre 2026
+
+### Infrastructure effectivement déployée
+
+- Dépôt : `https://github.com/alysonivone-cyber/NeurohoraScope.AI` ; branche `main` ; commit `1f7216f`.
+- Hébergement : Render Free, Python 3.13.17 ; `start_render.py` importe `render_app.py`, application ASGI exécutée par Uvicorn.
+- URL publique du MCP : **`https://neurohorascope-ai.onrender.com/mcp`** ; transport **Streamable HTTP sur HTTPS**.
+- Déploiement `1f7216f` : **Deploy succeeded | Live**, 4 novembre 2026, 11:35:18 GMT+1 ; journaux « Application startup complete » et « Your service is live ».
+- La racine `/` peut retourner HTTP 404 sans anomalie : le chemin fonctionnel est `/mcp`.
+- Le service gratuit peut s'endormir et nécessiter plus de 50 secondes pour se réveiller.
+
+### Tests réellement observés
+
+1. Session MCP initialisée à distance via un client Python, `list_tools()` retourne **12 outils**.
+2. Connecteur personnalisé Claude.ai configuré avec l'URL `/mcp`, transport HTTP Streamable, sans authentification ; connexion effective.
+3. Les 12 outils ont été invoqués au niveau protocolaire : **11 exécutés**, tandis que `analyze_scientific_evidence_with_gemini` a renvoyé intentionnellement `status: disabled` en mode public.
+4. Après le déploiement `1f7216f`, Claude a invoqué `search_neuroscience_literature` et reçu **trois publications** Parkinson avec titres, PMID et URL. Le serveur a donc été revalidé après le dernier déploiement.
+
+### Sécurité réellement en place et écarts
+
+- Configuration du mode démonstration : `MCP_PUBLIC_DEMO=true`, `MCP_REQUIRE_AUTH=false`. L'endpoint est **public et non authentifié** ; ne pas le décrire comme protégé par OAuth ou jeton Bearer.
+- Gemini est **désactivé sur l'endpoint public** pour protéger le quota API. Le traitement Gemini a été testé séparément **en local**, avec une clé stockée en variable d'environnement.
+- Le mode public répond au besoin pédagogique d'une URL MCP accessible à Claude, mais **ne satisfait pas SEC-002, SEC-003 et SEC-009** tels qu'énoncés pour un déploiement authentifié. Ces exigences doivent être qualifiées de *non applicables au mode démonstration public* ou *à réaliser pour un mode de production restreint*, sans les marquer comme réussies.
+- Les limitations de débit, l'anti-abus, la revue des journaux et les contrôles d'accès du mode privé ne sont pas démontrés par les tests disponibles. Une exposition publique sans authentification nécessite une vigilance particulière sur l'abus des API publiques et la disponibilité.
+
+### Critères d'acceptation du rendu pédagogique
+
+- **Confirmé :** code dans un dépôt Git ; URL publique MCP ; serveur HTTP accessible ; découverte des outils ; appel réel depuis Claude ; données structurées (titre et URL).
+- **Confirmé séparément :** analyse de données ChEMBL avec l'API Gemini en local, réponse validée.
+- **À expliciter :** le flux « Gemini exécuté par Claude via le MCP distant » n'est pas démontré dans le mode public actuel. Le sujet du professeur représente une chaîne de traitement IA vers MCP ; le degré d'intégration attendu entre ces étapes devra être confirmé si une démonstration bout-en-bout est exigée.
+- **Livrables explicitement demandés dans le PDF :** dépôt Git et URL publique du MCP, avant le 17 novembre 2026 à 23:59 CET. Aucune capture d'écran n'y est exigée.

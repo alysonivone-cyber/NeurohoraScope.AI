@@ -2,9 +2,9 @@
 
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
-**Version documentaire :** 1.0
-**Date :** 29 octobre 2026
-**Statut :** Architecture identifiée — validation fonctionnelle partielle
+**Version documentaire :** 1.2
+**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Statut :** Architecture et serveur public validés sur scénarios représentatifs — audit global partiel
 
 ## 1. Objectif
 
@@ -192,3 +192,30 @@ SPEC-001 pourra être considérée comme entièrement validée lorsque :
 - Les SPECS associées seront cohérentes avec cette spécification générale.
 
 **Conclusion :** NeurohoraScope.AI dispose d'une architecture modulaire identifiable et d'un serveur MCP local testé. La validation complète du système et son déploiement distant restent des étapes distinctes.
+
+---
+
+## 11. Mise à jour vérifiée — 4 novembre 2026
+
+### État de l'architecture livrée
+
+- Dépôt GitHub : `https://github.com/alysonivone-cyber/NeurohoraScope.AI` ; branche `main`, commit `1f7216f` publié.
+- Serveur MCP HTTPS : `https://neurohorascope-ai.onrender.com/mcp` ; déploiement Render du commit `1f7216f` confirmé **Live** le 4 novembre 2026.
+- Entrée du déploiement : `start_render.py` et application ASGI `render_app.py` ; serveur Uvicorn sur le port attribué par Render. Ces points d'entrée complètent `mcp_server.py` pour l'exécution locale.
+- Un client MCP distant (Claude.ai) a découvert les **12 outils** et appelé les fonctionnalités de recherche. Après le dernier déploiement, `search_neuroscience_literature` a retourné trois titres PubMed, PMID et URL.
+- L'appel réel à l'API Gemini a réussi **en local** avec deux observations ChEMBL, réponse structurée et contrôles déterministes/sémantiques passés (`status: success`).
+
+### Frontière de sécurité et de démonstration
+
+Le serveur public fonctionne en mode `MCP_PUBLIC_DEMO=true` avec `MCP_REQUIRE_AUTH=false` : il est accessible sans authentification applicative. Dans ce mode, l'outil Gemini est annoncé parmi les 12 outils mais **son exécution est désactivée** afin de ne pas exposer le quota de l'API. Le traitement Gemini validé est une démonstration locale distincte. Le serveur ne doit donc pas être décrit comme un MCP distant authentifié ou comme exécutant Gemini à distance.
+
+### Exigences et réserves
+
+- **SYS-001 à SYS-008 :** des scénarios représentatifs ont été observés ; pas d'audit exhaustif de tous les modules.
+- **SYS-009 :** les 15 tests automatisés réussis mentionnés dans la version du 29 octobre sont historiques ; ils n'ont pas été réexécutés après le commit `1f7216f` dans les éléments disponibles.
+- **SYS-010 :** présente mise à jour documentaire.
+- Reste à documenter/tester : limites de requêtes, cas réseau dégradés, sécurité d'un éventuel mode authentifié, audit des modules non exposés par MCP et conformité de l'ensemble des exports.
+
+### Alignement avec le sujet du professeur
+
+Le support « Projet IA » (26 octobre 2026) demande : (1) des données externes issues d'API ou de jeux publics, (2) un traitement structurant par un service IA externe, (3) un serveur MCP déployé et utilisable par un client IA. Livrables explicitement cités : **dépôt Git et URL publique MCP**, échéance **17 novembre 2026 à 23:59 CET**. Aucune capture d'écran n'est exigée. La démonstration de traitement Gemini a été effectuée localement ; le serveur public expose des résultats scientifiques structurés, mais ne déclenche pas Gemini en mode démonstration.
