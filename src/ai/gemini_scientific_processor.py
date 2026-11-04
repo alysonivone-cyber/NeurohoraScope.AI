@@ -49,7 +49,11 @@ Rules:
 3. Do not claim clinical efficacy from in-vitro IC50.
 4. Do not rank compounds across different assays.
 5. Clearly distinguish observations from limitations.
-6. Return valid JSON only.
+6. Use the term "sub-nanomolar" only when IC50 is strictly
+   below 1 nM. Never use "sub-nanomolar" for IC50 >= 1 nM.
+7. Avoid unsupported potency classifications and preserve
+   the experimental assay context.
+8. Return valid JSON only.
 
 Required JSON structure:
 {{
