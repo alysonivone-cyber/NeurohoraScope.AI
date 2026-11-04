@@ -10,11 +10,14 @@ from mcp.server.auth.middleware.bearer_auth import (
     RequireAuthMiddleware,
 )
 
-# Activer la protection HTTP avant tout import du package MCP.
-os.environ["MCP_EXTERNAL_AUTH"] = "true"
+# Configurer l'authentification avant tout import du package MCP.
+if os.getenv("MCP_PUBLIC_DEMO", "false").lower() == "true":
+    os.environ["MCP_EXTERNAL_AUTH"] = "false"
+    os.environ["MCP_REQUIRE_AUTH"] = "false"
+else:
+    os.environ["MCP_EXTERNAL_AUTH"] = "true"
 
 from src.mcp.auth import NeurohoraTokenVerifier
-
 
 def create_app():
     public_demo = os.getenv("MCP_PUBLIC_DEMO", "false").lower() == "true"
