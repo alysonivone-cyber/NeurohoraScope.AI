@@ -17,6 +17,15 @@ from src.mcp.auth import NeurohoraTokenVerifier
 
 
 def create_app():
+    public_demo = os.getenv("MCP_PUBLIC_DEMO", "false").lower() == "true"
+    if public_demo:
+        # Explicit opt-in: no HTTP Bearer authentication; do not enable on a
+        # server that exposes private data or unbounded paid API operations.
+        os.environ["MCP_EXTERNAL_AUTH"] = "false"
+        os.environ["MCP_REQUIRE_AUTH"] = "false"
+        from src.mcp.server import mcp
+        return mcp.streamable_http_app()
+
     if os.getenv("MCP_REQUIRE_AUTH", "").lower() != "true":
         raise RuntimeError("Authentification MCP obligatoire.")
 

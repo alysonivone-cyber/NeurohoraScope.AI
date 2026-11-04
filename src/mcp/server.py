@@ -72,6 +72,17 @@ def create_mcp_server():
         return FastMCP("NeurohoraScope.AI", transport_security=security)
 
     if os.getenv("MCP_REQUIRE_AUTH", "false").lower() != "true":
+        # Keep transport security configured even in public demonstration mode.
+        public_url = os.getenv("MCP_PUBLIC_URL", "").strip()
+        parsed = urlparse(public_url)
+        if parsed.scheme == "https" and parsed.hostname:
+            host = parsed.hostname
+            security = TransportSecuritySettings(
+                enable_dns_rebinding_protection=True,
+                allowed_hosts=[host, f"{host}:443", "localhost:*", "127.0.0.1:*", "[::1]:*"],
+                allowed_origins=[f"https://{host}", "http://localhost:*", "http://127.0.0.1:*", "http://[::1]:*"],
+            )
+            return FastMCP("NeurohoraScope.AI", transport_security=security)
         return FastMCP("NeurohoraScope.AI")
 
     from mcp.server.auth.settings import AuthSettings
@@ -344,6 +355,9 @@ def analyze_scientific_evidence_with_gemini(
     max_records: int = 7,
 ) -> dict:
     """Analyze local ChEMBL evidence with Gemini and scientific validation."""
+
+    if os.getenv("MCP_PUBLIC_DEMO", "false").lower() == "true":
+        return {"status": "disabled", "message": "Gemini is disabled on the public demonstration endpoint."}
 
     if not 1 <= max_records <= 20:
         return {

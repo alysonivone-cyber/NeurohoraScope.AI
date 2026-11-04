@@ -8,8 +8,10 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.13.17"
-      - key: MCP_REQUIRE_AUTH
+      - key: MCP_PUBLIC_DEMO
         value: "true"
+      - key: MCP_REQUIRE_AUTH
+        value: "false"
       - key: MCP_ACCESS_TOKEN
         sync: false
       - key: MCP_PUBLIC_URL

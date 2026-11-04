@@ -6,12 +6,13 @@ import uvicorn
 
 
 def main():
-    if os.getenv("MCP_REQUIRE_AUTH", "").lower() != "true":
+    public_demo = os.getenv("MCP_PUBLIC_DEMO", "false").lower() == "true"
+    if not public_demo and os.getenv("MCP_REQUIRE_AUTH", "").lower() != "true":
         raise RuntimeError(
             "Authentification obligatoire sur Render."
         )
 
-    if len(os.getenv("MCP_ACCESS_TOKEN", "")) < 32:
+    if not public_demo and len(os.getenv("MCP_ACCESS_TOKEN", "")) < 32:
         raise RuntimeError(
             "MCP_ACCESS_TOKEN doit contenir au moins 32 caracteres."
         )
