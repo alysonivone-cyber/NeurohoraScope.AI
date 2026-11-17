@@ -327,8 +327,8 @@ SPEC-005 sera considérée comme entièrement validée lorsque :
 ## Mise à jour — 17 novembre 2026
 
 - Le serveur public `https://neurohorascope-ai.onrender.com/mcp` reste en mode démonstration (`MCP_PUBLIC_DEMO=true`, `MCP_REQUIRE_AUTH=false`) ; le README le mentionne désormais comme démonstration publique.
-- Déploiement de référence : commit `75e2c53`, Live ; journaux : 18 maladies et 261 associations chargées. Les commits `5db4f9a` (données), `d90a5de` (documentation) et `b79796a` (première version de l'étape Gemini) le précèdent.
-- Les **12 outils** ont été réexécutés via le connecteur Claude et ont tous répondu. Après le commit `b79796a`, `analyze_scientific_evidence_with_gemini` renvoie `status: precomputed` en mode public : 55 publications PubMed structurées par Gemini hors ligne (11 maladies neurologiques), filtrables par maladie (voir SPEC-004, section 15).
+- Déploiement de référence : commit `1909ae3`, Live ; journaux : 18 maladies et 261 associations chargées. Les commits `5db4f9a` (données), `d90a5de` et `49710b1` (documentation), `b79796a` et `75e2c53` (étape Gemini hors ligne) le précèdent.
+- Les **12 outils** ont été réexécutés via le connecteur Claude et ont tous répondu. Après le commit `1909ae3`, `analyze_scientific_evidence_with_gemini` appelle **Gemini en direct** depuis le serveur lorsqu'une maladie couverte est fournie (`status: success`, `mode: live`, observé pour Parkinson et la sclérose en plaques) et se replie sur les 55 publications enregistrées sinon (`status: precomputed`). Voir SPEC-004, section 15.
 - La clé Gemini a été remplacée ; elle ne doit exister que dans les variables d'environnement Render, jamais dans le dépôt.
 - Le premier appel après une période d'inactivité peut dépasser 50 secondes (offre gratuite Render).
-- Inchangé : aucune authentification. Un appel Gemini **en direct** depuis Claude sur le serveur public n'est pas démontré ; l'étape Gemini est exécutée hors ligne et ses résultats sont servis par le MCP.
+- Inchangé : aucune authentification. L'appel Gemini en direct est borné (3 publications par appel, 11 maladies, 30 appels par jour, cache d'une heure) pour limiter l'abus de la clé sur un endpoint public non authentifié.

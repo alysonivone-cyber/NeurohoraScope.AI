@@ -303,7 +303,7 @@ La réussite locale prouve le fonctionnement de l'appel à l'API et des validati
 - Champs structurés par publication : type d'étude, molécules citées, résultat principal, limites. Le titre, l'URL et le PMID sont repris de PubMed, pas de Gemini.
 - Validation déterministe : toute molécule qui ne figure pas textuellement dans le titre ou le résumé est rejetée ; une publication absente de la réponse est ignorée ; l'exécution échoue sans écrire de fichier si Gemini ne répond pas.
 - Exécution du 17 novembre 2026 : **55 publications structurées** (5 par maladie, 11 maladies ; certains articles apparaissent pour plusieurs maladies). Commit `75e2c53`, déployé sur Render. Une première exécution (Parkinson et Alzheimer, 10 publications, commit `b79796a`) a précédé cette version.
-- L'outil `analyze_scientific_evidence_with_gemini`, en mode démo public, ne fait **plus d'appel Gemini en direct** : il renvoie ce fichier avec `status: precomputed`, la date de génération et une note indiquant que les données ont été générées hors ligne. Il accepte un filtre `disease`. Si le fichier est absent ou illisible, il renvoie `status: disabled`.
+- L'outil `analyze_scientific_evidence_with_gemini` fonctionne en deux modes sur la démo publique : (1) **appel Gemini en direct** (`status: success`, `mode: live`) lorsqu'une maladie couverte est fournie (voir « Mode live » ci-dessous) ; (2) **repli** sur le fichier enregistré (`status: precomputed`, avec la raison) si la maladie n'est pas couverte, si le plafond quotidien est atteint, si la clé est absente ou si l'appel échoue. Si le fichier est absent ou illisible, l'outil renvoie `status: disabled`.
 - Hors démo, l'outil conserve l'analyse en direct de `exact_activity_matches.json` (validation du 4 novembre, section 14).
 
 ### Vérification observée
@@ -312,7 +312,16 @@ Depuis Claude, le 17 novembre, sur les données finales : appels filtrés `disea
 
 ### Limites
 
-- Un appel Gemini **en direct** depuis Claude sur le serveur public n'est pas démontré, par choix, pour protéger la clé et le quota.
+- L'appel en direct est borné pour protéger la clé et le quota : 3 publications par appel, 11 maladies couvertes, plafond de 30 appels live par jour (variable `GEMINI_LIVE_DAILY_LIMIT`), cache d'une heure par maladie. La clé n'est jamais renvoyée dans une réponse.
 - Les champs structurés sont extraits de résumés par une IA : ce ne sont pas des conclusions scientifiques validées. La liste de molécules peut contenir des abréviations et des composés qui ne sont pas des médicaments (par exemple LPS, MPTP).
 - Pour les maladies rares, la requête PubMed (qui inclut « neuroprotection ») renvoie parfois des articles peu spécifiques à la maladie (par exemple pour l'ataxie de Friedreich). La liste « molécules citées » peut contenir des gènes, des cytokines ou des abréviations.
 - Le fichier est un import initial : il n'est pas rafraîchi automatiquement. Les 7 maladies non neurologiques de la base ne sont pas traitées par cette étape.
+
+### Mode live (ajout du 17 novembre 2026, commit `1909ae3`)
+
+- Fonctionnement : lorsque `disease` est fourni (paramètre `live=True` par défaut), le serveur récupère 3 résumés PubMed de la maladie, appelle Gemini avec la clé stockée dans les variables d'environnement de Render, applique la même validation déterministe que le script hors ligne et renvoie le résultat avec `mode: live` et l'heure de génération.
+- Les noms de maladies sont normalisés (sous-chaîne du nom anglais, quelques alias français) ; une maladie hors des 11 maladies neurologiques déclenche le repli.
+- Vérification observée depuis Claude le 17 novembre 2026, après le déploiement : `disease="Parkinson"` → `status: success`, `mode: live`, 3 publications, `generated_at` du jour ; `disease="sclérose en plaques"` → `multiple sclerosis`, 3 publications en direct ; `disease="diabetes"` → repli `precomputed` avec la raison « disease not covered ».
+- Tests automatisés hors ligne (réponses simulées) : appel live, cache, alias, maladie inconnue, plafond atteint, erreur Gemini sans fuite d'information, clé absente, `live=False`, appel sans maladie, fichier enregistré absent.
+- Limites : le résultat d'un appel live dépend de la réponse de Gemini à ce moment-là et peut différer légèrement du fichier enregistré ; il reste une extraction automatique depuis des résumés, pas une validation scientifique.
+
