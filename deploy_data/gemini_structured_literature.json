@@ -1,6 +1,6 @@
 {
   "generated_by": "Gemini (gemini-3.1-flash-lite)",
-  "generated_at": "2026-11-17T10:38:31+00:00",
+  "generated_at": "2026-11-17T10:39:01+00:00",
   "pipeline": "PubMed abstracts -> Gemini structuring -> validation -> MCP",
   "diseases": [
     "Alzheimer's disease",
@@ -726,6 +726,72 @@
       ],
       "main_finding": "Overexpression of mitochondrial ferritin provides a neuroprotective effect against oxidative stress and neurotoxicity in cultured neuroblastoma cells.",
       "limitations": "The study does not provide evidence of the therapeutic effect of mitochondrial ferritin in living human subjects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "39514016",
+      "title": "Spinal Muscular Atrophy: Current Medications and Re-purposed Drugs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39514016/",
+      "disease": "spinal muscular atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "branaplam",
+        "harmine",
+        "olesoxime",
+        "prednisolone",
+        "riluzole"
+      ],
+      "main_finding": "This review explores repurposed drugs that have shown some improvement in treating spinal muscular atrophy.",
+      "limitations": "The current strategy for medication repurposing lacks systematicity and often relies on serendipitous discoveries.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "38256091",
+      "title": "Aging, Neurodegenerative Disorders, and Cerebellum.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38256091/",
+      "disease": "spinal muscular atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "This review highlights molecular and cellular events in the cerebellum that are disrupted during aging and the development of neurodegenerative disorders.",
+      "limitations": "The functional contributions of the cerebellum and underlying molecular mechanisms in aging and neurodegenerative disorders remain largely unknown.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "29703692",
+      "title": "New and developing therapies in spinal muscular atrophy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29703692/",
+      "disease": "spinal muscular atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Therapeutic strategies for SMA include addressing SMN protein deficiency via SMN1 gene replacement or SMN2 modulation, alongside neuroprotective and supportive approaches.",
+      "limitations": "The abstract does not provide specific clinical outcomes or data for the novel therapies discussed.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "39725771",
+      "title": "Targeting STMN2 for neuroprotection and neuromuscular recovery in Spinal Muscular Atrophy: evidence from in vitro and in vivo SMA models.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39725771/",
+      "disease": "spinal muscular atrophy",
+      "study_type": "in vitro",
+      "molecules_mentioned": [
+        "AAV9",
+        "STMN2",
+        "Stathmin-2",
+        "adeno-associated virus serotype 9"
+      ],
+      "main_finding": "STMN2 overexpression restored axonal growth in SMA patient-derived motor neurons, and AAV9-mediated Stmn2 delivery improved survival and motor function in SMA mice.",
+      "limitations": "The study does not provide data on the safety or efficacy of STMN2-based therapies in human clinical trials.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "28026041",
+      "title": "Emerging therapies and challenges in spinal muscular atrophy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28026041/",
+      "disease": "spinal muscular atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Therapeutic strategies for SMA are evolving from SMN1 gene replacement and SMN2 transcript modulation to neuroprotection and peripheral muscle-targeted therapies.",
+      "limitations": "The long-term impact of these emerging disease-modifying therapies remains to be determined through future monitoring programs.",
       "source": "PubMed"
     }
   ]
