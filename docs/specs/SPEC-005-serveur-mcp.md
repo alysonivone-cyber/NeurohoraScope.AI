@@ -327,8 +327,8 @@ SPEC-005 sera considérée comme entièrement validée lorsque :
 ## Mise à jour — 17 novembre 2026
 
 - Le serveur public `https://neurohorascope-ai.onrender.com/mcp` reste en mode démonstration (`MCP_PUBLIC_DEMO=true`, `MCP_REQUIRE_AUTH=false`) ; le README le mentionne désormais comme démonstration publique.
-- Dernier déploiement : commit `5db4f9a`, Live ; journaux : 18 maladies et 261 associations chargées.
-- Les **12 outils** ont été réexécutés via le connecteur Claude : `analyze_scientific_evidence_with_gemini` renvoie toujours `status: disabled` en mode public, comme attendu. Les 11 autres ont répondu.
+- Déploiement de référence : commit `b79796a`, Live ; journaux : 18 maladies et 261 associations chargées. Les commits `5db4f9a` (données) et `d90a5de` (documentation) le précèdent.
+- Les **12 outils** ont été réexécutés via le connecteur Claude et ont tous répondu. Après le commit `b79796a`, `analyze_scientific_evidence_with_gemini` renvoie `status: precomputed` en mode public : 10 publications PubMed structurées par Gemini hors ligne, filtrables par maladie (voir SPEC-004, section 15).
 - La clé Gemini a été remplacée ; elle ne doit exister que dans les variables d'environnement Render, jamais dans le dépôt.
 - Le premier appel après une période d'inactivité peut dépasser 50 secondes (offre gratuite Render).
-- Inchangé : aucune authentification, appel Gemini de bout en bout depuis Claude non démontré.
+- Inchangé : aucune authentification. Un appel Gemini **en direct** depuis Claude sur le serveur public n'est pas démontré ; l'étape Gemini est exécutée hors ligne et ses résultats sont servis par le MCP.

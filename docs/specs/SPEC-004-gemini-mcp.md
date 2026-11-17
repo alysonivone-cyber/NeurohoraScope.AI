@@ -4,7 +4,7 @@
 **Domaine :** Neuropharmacologie computationnelle
 **Version documentaire :** 1.2
 **Date :** 17 novembre 2026 (mise à jour ; états historiques conservés)
-**Statut :** Gemini validé en local — désactivé sur MCP public
+**Statut :** Gemini validé en local — sur le MCP public, données structurées par Gemini servies hors ligne
 
 ## 1. Objectif
 
@@ -297,5 +297,21 @@ La réussite locale prouve le fonctionnement de l'appel à l'API et des validati
 
 ## 15. Mise à jour — 17 novembre 2026
 
-- Le 17 novembre, l'outil `analyze_scientific_evidence_with_gemini` a été rappelé via le MCP public : réponse `status: disabled` (« Gemini is disabled on the public demonstration endpoint »), conforme à la conception.
-- La clé `GEMINI_API_KEY` a été remplacée ; l'ancienne clé doit être révoquée. La validation Gemini réelle du 4 novembre (section 14) reste un test **local**.
+### Étape IA hors ligne, servie par le MCP
+
+- Nouveau module `src/ai/gemini_structure_literature.py` : récupère 5 résumés PubMed pour Parkinson et 5 pour Alzheimer, les envoie à Gemini (`gemini-3.1-flash-lite`, température 0, réponse JSON) et enregistre le résultat dans `deploy_data/gemini_structured_literature.json`. La clé `GEMINI_API_KEY` est lue dans l'environnement local et n'est jamais écrite dans le dépôt.
+- Champs structurés par publication : type d'étude, molécules citées, résultat principal, limites. Le titre, l'URL et le PMID sont repris de PubMed, pas de Gemini.
+- Validation déterministe : toute molécule qui ne figure pas textuellement dans le titre ou le résumé est rejetée ; une publication absente de la réponse est ignorée ; l'exécution échoue sans écrire de fichier si Gemini ne répond pas.
+- Exécution du 17 novembre 2026 : 10 publications structurées (sept articles distincts, trois étant retrouvés pour les deux maladies). Commit `b79796a`, déployé sur Render.
+- L'outil `analyze_scientific_evidence_with_gemini`, en mode démo public, ne fait **plus d'appel Gemini en direct** : il renvoie ce fichier avec `status: precomputed`, la date de génération et une note indiquant que les données ont été générées hors ligne. Il accepte un filtre `disease`. Si le fichier est absent ou illisible, il renvoie `status: disabled`.
+- Hors démo, l'outil conserve l'analyse en direct de `exact_activity_matches.json` (validation du 4 novembre, section 14).
+
+### Vérification observée
+
+Depuis Claude, le 17 novembre : appel avec `disease="Parkinson"` (5 publications Parkinson filtrées, 3 renvoyées avec `max_records=3`) et appel avec `max_records=20` (10 publications). Réponses conformes.
+
+### Limites
+
+- Un appel Gemini **en direct** depuis Claude sur le serveur public n'est pas démontré, par choix, pour protéger la clé et le quota.
+- Les champs structurés sont extraits de résumés par une IA : ce ne sont pas des conclusions scientifiques validées. La liste de molécules peut contenir des abréviations et des composés qui ne sont pas des médicaments (par exemple LPS, MPTP).
+- Le fichier est un import initial : il n'est pas rafraîchi automatiquement.

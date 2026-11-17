@@ -296,3 +296,8 @@ Les tests confirment l'accès et des réponses réelles pour ces cas, **pas** l'
 
 - Le jeu n'est pas exhaustif : certaines maladies neurodégénératives (par exemple l'ataxie spinocérébelleuse) ne sont pas incluses.
 - Les CUI UMLS des neuf maladies issues des essais restent à renseigner.
+
+### Données structurées par Gemini (ajout du 17 novembre 2026, après-midi)
+
+- Fichier `deploy_data/gemini_structured_literature.json` : 10 publications PubMed (Parkinson et Alzheimer) structurées par Gemini hors ligne, avec date et modèle de génération. Source : PubMed ; traitement : Gemini ; titre, URL et PMID repris de la source. Voir SPEC-004, section 15.
+- Ces données dérivées par IA restent séparées des données sources (DATA-006) et sont étiquetées comme générées hors ligne.

@@ -13,12 +13,13 @@
 
 | Point | Statut | Preuve disponible |
 |---|---|---|
-| Dépôt Git | Confirmé | `main`, commit `5db4f9a` (17 nov. ; `1f7216f` le 4 nov.) |
-| Serveur HTTPS Render | Confirmé | `/mcp`, déploiement Live du 17 novembre (commit `5db4f9a`) |
+| Dépôt Git | Confirmé | `main`, commit `b79796a` (17 nov. ; `1f7216f` le 4 nov.) |
+| Serveur HTTPS Render | Confirmé | `/mcp`, déploiement Live du 17 novembre (commit `b79796a`) |
 | Client Claude distant | Confirmé | Recherche PubMed : trois publications avec PMID et URL |
-| Outils MCP | 12 découverts | 11 outils exécutés (revérifiés le 17 nov.), 1 outil Gemini volontairement désactivé en public |
+| Outils MCP | 12 découverts | 12 outils exécutés le 17 nov. ; l'outil Gemini sert des données pré-calculées en public (`precomputed`) |
 | IA externe Gemini | Confirmé localement | HTTP 200, `status: success`, deux observations BTK |
-| Gemini appelé par Claude sur Render | Non démontré | Désactivé par `MCP_PUBLIC_DEMO=true` |
+| Données structurées par Gemini servies à Claude | Confirmé (17 nov.) | `status: precomputed`, 10 publications ; générées hors ligne |
+| Appel Gemini **en direct** par Claude sur Render | Non démontré | Volontairement non exposé (`MCP_PUBLIC_DEMO=true`) |
 | Authentification du MCP public | Non | Mode démonstration sans authentification |
 | Tests exhaustifs de sécurité et scientifique | Non démontrés | À distinguer des scénarios réussis |
 
@@ -26,7 +27,8 @@
 
 - Medicodex : 18 maladies et 261 associations (dont Parkinson, ajouté manuellement, et neuf maladies issues de ClinicalTrials.gov), champ `Source` par enregistrement, fichier de déploiement `deploy_data/medicodex.json`. Voir SPEC-002, section 14.
 - Les affirmations « huit maladies / 195 associations » et « Parkinson absent » datent du 4 novembre et sont **historiques**.
-- Clé Gemini remplacée ; ancienne clé à révoquer.
+- Clé Gemini remplacée ; ancienne clé révoquée.
+- Étape IA ajoutée : Gemini structure hors ligne 10 résumés PubMed ; le MCP sert le résultat (SPEC-004, section 15). Le schéma du professeur (données brutes, IA, données structurées, MCP, client) est donc suivi, avec un traitement IA exécuté hors ligne.
 
 ## Attention à la lecture des SPEC
 
@@ -39,4 +41,4 @@ Les sections de tests datées du 29 octobre sont conservées comme **historique*
 
 ## Point d'attention pédagogique
 
-Le schéma du professeur montre un flux collecte → IA → MCP → client. Le traitement Gemini et le MCP public sont chacun démontrés, **mais pas comme un appel Gemini de bout en bout depuis Claude**. Ne pas prétendre l'inverse. Si le professeur exige ce scénario exact, il faudra prévoir une démonstration contrôlée ou clarifier l'interprétation de la consigne.
+Le schéma du professeur montre un flux collecte → IA → MCP → client. Le traitement Gemini est exécuté hors ligne et ses résultats sont servis par le MCP public à Claude. **Un appel Gemini en direct depuis Claude n'est pas démontré** ; ne pas prétendre l'inverse. Si le professeur exige ce scénario exact, il faudra prévoir une démonstration contrôlée ou clarifier l'interprétation de la consigne.
