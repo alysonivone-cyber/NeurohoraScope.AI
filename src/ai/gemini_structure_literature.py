@@ -1,4 +1,4 @@
-"""Structure PubMed abstracts with Gemini (offline ingestion step).
+"""Structure PubMed abstracts with Gemini (offline ingestion step, one Gemini call per disease).
 
 Pipeline: PubMed abstracts (raw text) -> Gemini structuring -> deterministic
 validation -> deploy_data/gemini_structured_literature.json -> MCP tool.
@@ -20,7 +20,19 @@ from dotenv import load_dotenv
 load_dotenv()
 
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
-DISEASES = ["Parkinson's disease", "Alzheimer's disease"]
+DISEASES = [
+    "Alzheimer's disease",
+    "Parkinson's disease",
+    "multiple sclerosis",
+    "amyotrophic lateral sclerosis",
+    "Huntington's disease",
+    "Lewy body disease",
+    "frontotemporal dementia",
+    "progressive supranuclear palsy",
+    "multiple system atrophy",
+    "Friedreich ataxia",
+    "spinal muscular atrophy",
+]
 PER_DISEASE = 5
 OUTPUT_PATH = Path(__file__).resolve().parents[2] / "deploy_data" / "gemini_structured_literature.json"
 
@@ -129,38 +141,40 @@ def validate_and_merge(publications, response):
     return structured
 
 
-def collect_publications():
+def collect_publications(disease):
     from src.clients.pubmed_client import search_pubmed
 
-    publications = []
-    for disease in DISEASES:
-        query = f'("{disease}"[Title/Abstract]) AND neuroprotection'
-        found = search_pubmed(query, max_results=PER_DISEASE * 2)
-        kept = [p for p in found if p.get("abstract", "").strip()][:PER_DISEASE]
-        for pub in kept:
-            publications.append({**pub, "disease": disease})
-        print(f"{disease}: {len(kept)} publications avec resume")
-    return publications
+    query = f'("{disease}"[Title/Abstract]) AND neuroprotection'
+    found = search_pubmed(query, max_results=PER_DISEASE * 2)
+    kept = [p for p in found if p.get("abstract", "").strip()][:PER_DISEASE]
+    time.sleep(0.5)
+    return [{**pub, "disease": disease} for pub in kept]
 
 
 def main():
-    publications = collect_publications()
-    if not publications:
-        print("ERREUR : aucune publication recuperee.")
-        sys.exit(1)
+    structured = []
+    for disease in DISEASES:
+        try:
+            publications = collect_publications(disease)
+            if not publications:
+                print(f"{disease}: aucune publication avec resume, ignoree")
+                continue
+            response = call_gemini(build_prompt(publications))
+            rows = validate_and_merge(publications, response)
+            structured.extend(rows)
+            print(f"{disease}: {len(rows)} publications structurees")
+        except Exception as error:
+            print(f"{disease}: ECHEC ({error}), ignoree")
 
-    print(f"Appel Gemini ({MODEL}) pour {len(publications)} publications...")
-    try:
-        response = call_gemini(build_prompt(publications))
-        structured = validate_and_merge(publications, response)
-    except Exception as error:
-        print("ECHEC :", error)
+    if not structured:
+        print("ECHEC : aucune publication structuree.")
         sys.exit(1)
 
     output = {
         "generated_by": f"Gemini ({MODEL})",
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "pipeline": "PubMed abstracts -> Gemini structuring -> validation -> MCP",
+        "diseases": DISEASES,
         "scientific_note": (
             "Generated offline by an AI model from PubMed abstracts, not a live call. "
             "Fields are extracted from abstracts only; they are not validated "
@@ -170,7 +184,7 @@ def main():
     }
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_PATH.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"OK : {len(structured)} publications structurees -> {OUTPUT_PATH}")
+    print(f"OK : {len(structured)} publications structurees ({len(set(r['disease'] for r in structured))} maladies) -> {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,108 @@
 {
   "generated_by": "Gemini (gemini-3.1-flash-lite)",
-  "generated_at": "2026-11-17T10:25:11+00:00",
+  "generated_at": "2026-11-17T10:38:31+00:00",
   "pipeline": "PubMed abstracts -> Gemini structuring -> validation -> MCP",
+  "diseases": [
+    "Alzheimer's disease",
+    "Parkinson's disease",
+    "multiple sclerosis",
+    "amyotrophic lateral sclerosis",
+    "Huntington's disease",
+    "Lewy body disease",
+    "frontotemporal dementia",
+    "progressive supranuclear palsy",
+    "multiple system atrophy",
+    "Friedreich ataxia",
+    "spinal muscular atrophy"
+  ],
   "scientific_note": "Generated offline by an AI model from PubMed abstracts, not a live call. Fields are extracted from abstracts only; they are not validated scientific conclusions and do not establish efficacy or safety.",
   "publications": [
+    {
+      "pmid": "31295812",
+      "title": "Potential Benefits of Nobiletin, A Citrus Flavonoid, against Alzheimer's Disease and Parkinson's Disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31295812/",
+      "disease": "Alzheimer's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "nobiletin"
+      ],
+      "main_finding": "Nobiletin improved cognitive deficits and pathological features of Alzheimer's disease, as well as motor and cognitive deficits in Parkinson's disease animal models.",
+      "limitations": "The study relies on animal models and does not provide clinical evidence in humans.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "32087283",
+      "title": "Neuroprotection by dihydrotestosterone in LPS-induced neuroinflammation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32087283/",
+      "disease": "Alzheimer's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "Aβ",
+        "Bax",
+        "Bcl-2",
+        "COX-2",
+        "IL-10",
+        "IL-13",
+        "IL-1β",
+        "IL-6",
+        "NO",
+        "PGE2",
+        "TNF-α",
+        "caspase-3",
+        "dihydrotestosterone",
+        "iNOS",
+        "lipopolysaccharide",
+        "synaptophysin",
+        "testosterone"
+      ],
+      "main_finding": "Dihydrotestosterone exerts anti-neuroinflammatory and neuroprotective effects in LPS-induced neuroinflammation models by suppressing TLR4-mediated signaling pathways.",
+      "limitations": "The findings are based on cell cultures and mouse models, requiring further validation in human clinical settings.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "25408503",
+      "title": "Neuroprotection by saponins.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25408503/",
+      "disease": "Alzheimer's disease",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "Saponins"
+      ],
+      "main_finding": "Saponins demonstrate significant neuroprotective effects in central nervous system disorders through mechanisms including antioxidant activity, anti-inflammation, and modulation of neurotransmitters.",
+      "limitations": "The mechanisms underlying the observed neuroprotective effects of saponins remain incomplete.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "39053739",
+      "title": "Design, synthesis and anti-Alzheimer's disease activity evaluation of C-3 arylated huperzine A derivatives.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39053739/",
+      "disease": "Alzheimer's disease",
+      "study_type": "in vitro",
+      "molecules_mentioned": [
+        "acetyl choline",
+        "huperzine A"
+      ],
+      "main_finding": "C-3 arylated huperzine A derivatives exhibited dual inhibitory activity against acetylcholinesterase and butyrylcholinesterase, but showed poor performance in cytotoxicity and neuroprotection assays.",
+      "limitations": "The synthesized derivatives did not demonstrate effective neuroprotection or low cytotoxicity in the assays performed.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "40942152",
+      "title": "Microbiota-Derived Tryptophan Metabolite Indole-3-Propionic Acid-Emerging Role in Neuroprotection.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40942152/",
+      "disease": "Alzheimer's disease",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "NF-κB",
+        "TNF-α",
+        "indole-3-propionic acid",
+        "kynurenic acid",
+        "tryptophan"
+      ],
+      "main_finding": "Indole-3-propionic acid acts as a neuroprotective molecule by scavenging free radicals, reducing inflammation, and enhancing neurotrophic factors in experimental paradigms.",
+      "limitations": "Clinical trials are still required to evaluate the efficacy of indole-3-propionic acid in human neurodegenerative disorders.",
+      "source": "PubMed"
+    },
     {
       "pmid": "31295812",
       "title": "Potential Benefits of Nobiletin, A Citrus Flavonoid, against Alzheimer's Disease and Parkinson's Disease.",
@@ -13,8 +112,8 @@
       "molecules_mentioned": [
         "nobiletin"
       ],
-      "main_finding": "Nobiletin improved cognitive deficits and the pathological features of Alzheimer's disease, as well as motor and cognitive deficits in Parkinson's disease animal models.",
-      "limitations": "The abstract does not report results from human clinical trials.",
+      "main_finding": "Nobiletin improved cognitive deficits and pathological features of Alzheimer's disease, as well as motor and cognitive deficits in Parkinson's disease animal models.",
+      "limitations": "The study does not provide clinical evidence of efficacy in humans.",
       "source": "PubMed"
     },
     {
@@ -26,13 +125,18 @@
       "molecules_mentioned": [
         "1-methyl-4-phenyl-1,2,3,6-te-trahydropyridine",
         "FGF21",
-        "Fibroblast growth factor 21",
-        "LPS",
-        "MPTP",
-        "lipopolysaccharides"
+        "Fission 1",
+        "claudin",
+        "dynamin-related protein 1",
+        "glail fibrillary acidicprotein",
+        "lipopolysaccharides",
+        "mitofusin 1",
+        "occludin",
+        "optic atrophy 1",
+        "zonula occludens"
       ],
-      "main_finding": "FGF21 exerts multi-faceted protection in Parkinson's disease via the FGFR1-Sirt1 axis, including blood-brain barrier repair and mitochondrial homeostasis restoration.",
-      "limitations": "The study relies on mouse models and in vitro microglia stimulation rather than human subjects.",
+      "main_finding": "FGF21 exerts multi-faceted protection in Parkinson's disease via the FGFR1-Sirt1 axis, including blood-brain barrier repair, mitochondrial homeostasis restoration, and microglial polarization.",
+      "limitations": "The study relies on mouse models and in vitro cell cultures rather than human clinical data.",
       "source": "PubMed"
     },
     {
@@ -42,14 +146,26 @@
       "disease": "Parkinson's disease",
       "study_type": "animal study",
       "molecules_mentioned": [
-        "DHT",
-        "LPS",
+        "Aβ",
+        "Bax",
+        "Bcl-2",
+        "COX-2",
+        "IL-10",
+        "IL-13",
+        "IL-1β",
+        "IL-6",
+        "NO",
+        "PGE2",
+        "TNF-α",
+        "caspase-3",
         "dihydrotestosterone",
+        "iNOS",
         "lipopolysaccharide",
+        "synaptophysin",
         "testosterone"
       ],
-      "main_finding": "Dihydrotestosterone exerts anti-neuroinflammatory and neuroprotective effects by suppressing TLR4-mediated NF-κB and MAPK signaling pathways.",
-      "limitations": "The study does not provide clinical evidence in human subjects.",
+      "main_finding": "Dihydrotestosterone exerts anti-neuroinflammatory and neuroprotective effects in LPS-induced neuroinflammation models by suppressing TLR4-mediated NF-κB and MAPK signaling pathways.",
+      "limitations": "The study does not demonstrate the long-term safety or efficacy of androgen replacement therapy in human patients.",
       "source": "PubMed"
     },
     {
@@ -58,11 +174,9 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/25408503/",
       "disease": "Parkinson's disease",
       "study_type": "review",
-      "molecules_mentioned": [
-        "Saponins"
-      ],
-      "main_finding": "Saponins have significant neuroprotective effects on the attenuation of central nervous system disorders, such as stroke, Alzheimer's disease, Parkinson's disease, and Huntington's disease.",
-      "limitations": "The mechanisms underlying the observed effects remain incomplete.",
+      "molecules_mentioned": [],
+      "main_finding": "Saponins have significant neuroprotective effects on the attenuation of central nervous system disorders, including stroke, Alzheimer's disease, Parkinson's disease, and Huntington's disease.",
+      "limitations": "The underlying mechanisms of the observed neuroprotective effects remain incomplete.",
       "source": "PubMed"
     },
     {
@@ -73,85 +187,545 @@
       "study_type": "animal study",
       "molecules_mentioned": [
         "1-Methyl-4-phenyl-1,2,3,6-tetrahydropyridine",
-        "AS",
         "Asiaticoside",
-        "MPTP"
+        "IL-1β"
       ],
-      "main_finding": "Asiaticoside alleviates Parkinson's disease symptoms induced by MPTP by binding to the NLRP3 protein and inhibiting inflammasome assembly.",
-      "limitations": "The study does not provide evidence of efficacy in human Parkinson's disease patients.",
+      "main_finding": "Asiaticoside alleviates symptoms of Parkinson's disease induced by MPTP by binding to the NLRP3 protein and inhibiting the assembly and activation of the inflammasome.",
+      "limitations": "The study does not provide data on the long-term clinical safety or therapeutic dosage for humans.",
       "source": "PubMed"
     },
     {
-      "pmid": "31295812",
-      "title": "Potential Benefits of Nobiletin, A Citrus Flavonoid, against Alzheimer's Disease and Parkinson's Disease.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/31295812/",
-      "disease": "Alzheimer's disease",
-      "study_type": "animal study",
-      "molecules_mentioned": [
-        "nobiletin"
-      ],
-      "main_finding": "Nobiletin improved cognitive deficits and the pathological features of Alzheimer's disease, as well as motor and cognitive deficits in Parkinson's disease animal models.",
-      "limitations": "The abstract does not report results from human clinical trials.",
+      "pmid": "36314777",
+      "title": "Updates and advances in multiple sclerosis neurotherapeutics.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36314777/",
+      "disease": "multiple sclerosis",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "The multiple sclerosis neurotherapeutic landscape is evolving with new disease-modifying therapies and ongoing research into neuropathological targets for progressive MS.",
+      "limitations": "The review does not provide clinical trial data or specific efficacy results for the mentioned agents.",
       "source": "PubMed"
     },
     {
       "pmid": "32087283",
       "title": "Neuroprotection by dihydrotestosterone in LPS-induced neuroinflammation.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/32087283/",
-      "disease": "Alzheimer's disease",
+      "disease": "multiple sclerosis",
       "study_type": "animal study",
       "molecules_mentioned": [
+        "Aβ",
+        "Bax",
+        "Bcl-2",
+        "COX-2",
         "DHT",
+        "IL-10",
+        "IL-13",
+        "IL-1β",
+        "IL-6",
         "LPS",
+        "NO",
+        "PGE2",
+        "TNF-α",
+        "caspase-3",
         "dihydrotestosterone",
+        "iNOS",
         "lipopolysaccharide",
         "testosterone"
       ],
-      "main_finding": "Dihydrotestosterone exerts anti-neuroinflammatory and neuroprotective effects by suppressing TLR4-mediated NF-κB and MAPK signaling pathways.",
-      "limitations": "The study does not provide clinical evidence in human subjects.",
+      "main_finding": "Dihydrotestosterone exerts anti-neuroinflammatory and neuroprotective effects in LPS-induced neuroinflammation models by suppressing TLR4-mediated NF-κB and MAPK p38 signaling pathways.",
+      "limitations": "The study does not provide clinical evidence of efficacy in human patients with neurodegenerative diseases.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "39168582",
+      "title": "Coffee and multiple sclerosis (MS).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39168582/",
+      "disease": "multiple sclerosis",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "caffeine"
+      ],
+      "main_finding": "Coffee consumption, including compounds like caffeine, polyphenols, and diterpenes, may reduce inflammation and oxidative stress while enhancing neural function in MS patients.",
+      "limitations": "The abstract does not present original clinical trial data confirming the therapeutic efficacy of coffee in MS patients.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "41564155",
+      "title": "In silico screening and preclinical validation identify bavisant as a therapeutic candidate for multiple sclerosis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41564155/",
+      "disease": "multiple sclerosis",
+      "study_type": "in vitro",
+      "molecules_mentioned": [
+        "bavisant"
+      ],
+      "main_finding": "Bavisant, a histamine receptor H3 antagonist, promoted remyelination and neuroprotection in mouse models of demyelination and axonal injury.",
+      "limitations": "The study provides proof-of-concept in animal models but has not yet been validated in human clinical trials.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "40738791",
+      "title": "From metabolism to mind: The expanding role of the GLP-1 receptor in neurotherapeutics.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40738791/",
+      "disease": "multiple sclerosis",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "NLY01",
+        "tirzepatide"
+      ],
+      "main_finding": "GLP-1 receptor agonists are under investigation for neuroprotective effects in neurological disorders, though clinical trial outcomes have been variable due to study heterogeneity.",
+      "limitations": "The review does not provide definitive clinical evidence for the efficacy of GLP-1RAs in treating specific neurological diseases.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "40508048",
+      "title": "Amyotrophic Lateral Sclerosis: Pathophysiological Mechanisms and Treatment Strategies (Part 2).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40508048/",
+      "disease": "amyotrophic lateral sclerosis",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Recent advances in understanding ALS pathogenesis focus on glutamate-mediated excitotoxicity and oxidative stress, with therapeutic strategies targeting these mechanisms through antiglutamatergic and antioxidant drugs.",
+      "limitations": "The abstract does not provide specific clinical trial results or efficacy data for the mentioned therapeutic strategies.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "35946443",
+      "title": "Biological and neurological activities of astaxanthin (Review).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35946443/",
+      "disease": "amyotrophic lateral sclerosis",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "astaxanthin"
+      ],
+      "main_finding": "Astaxanthin is a lipid-soluble carotenoid with antioxidant, anti-inflammatory, and anti-apoptotic properties that can cross the blood-brain barrier and may offer neuroprotective effects.",
+      "limitations": "The biological effects of astaxanthin on humans and its underlying mechanisms are not yet fully understood.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "38759454",
+      "title": "Current therapy in amyotrophic lateral sclerosis (ALS): A review on past and future therapeutic strategies.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38759454/",
+      "disease": "amyotrophic lateral sclerosis",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "edavarone",
+        "riluzole"
+      ],
+      "main_finding": "Current ALS treatment options are limited to two FDA-approved drugs, riluzole and edavarone, neither of which provides a cure for the disease.",
+      "limitations": "The abstract does not provide new clinical data on the efficacy of the reviewed neuroprotective compounds.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "32847483",
+      "title": "Riluzole for the treatment of amyotrophic lateral sclerosis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32847483/",
+      "disease": "amyotrophic lateral sclerosis",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "riluzole"
+      ],
+      "main_finding": "Riluzole is a benzothiazole derivative that blocks glutamatergic neurotransmission and prolongs tracheostomy-free survival in ALS patients by approximately 2-3 months.",
+      "limitations": "The clinical efficacy of riluzole in treating ALS is described as modest.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "28867362",
+      "title": "Riluzole-induced recurrent pancreatitis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28867362/",
+      "disease": "amyotrophic lateral sclerosis",
+      "study_type": "case report",
+      "molecules_mentioned": [
+        "riluzole"
+      ],
+      "main_finding": "Two patients with sporadic limb-onset ALS developed recurrent acute pancreatitis during treatment with riluzole.",
+      "limitations": "This report is based on only two cases and does not establish a definitive causal mechanism.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "14528049",
+      "title": "Huntington's disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14528049/",
+      "disease": "Huntington's disease",
+      "study_type": "other",
+      "molecules_mentioned": [],
+      "main_finding": "Molecular genetics has revealed the disease trigger for Huntington's disease as an inherited unstable CAG expansion in a novel 4p16.3 gene.",
+      "limitations": "The abstract does not provide results from clinical trials or specific drug efficacy data.",
       "source": "PubMed"
     },
     {
       "pmid": "25408503",
       "title": "Neuroprotection by saponins.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/25408503/",
-      "disease": "Alzheimer's disease",
+      "disease": "Huntington's disease",
       "study_type": "review",
       "molecules_mentioned": [
+        "Ca(2+)",
         "Saponins"
       ],
-      "main_finding": "Saponins have significant neuroprotective effects on the attenuation of central nervous system disorders, such as stroke, Alzheimer's disease, Parkinson's disease, and Huntington's disease.",
-      "limitations": "The mechanisms underlying the observed effects remain incomplete.",
+      "main_finding": "Saponins have significant neuroprotective effects on attenuation of central nervous system disorders, such as stroke, Alzheimer's disease, Parkinson's disease, and Huntington's disease.",
+      "limitations": "The mechanisms underlying the observed effects of saponins remain incomplete.",
       "source": "PubMed"
     },
     {
-      "pmid": "39053739",
-      "title": "Design, synthesis and anti-Alzheimer's disease activity evaluation of C-3 arylated huperzine A derivatives.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/39053739/",
-      "disease": "Alzheimer's disease",
-      "study_type": "in vitro",
-      "molecules_mentioned": [
-        "huperzine A"
-      ],
-      "main_finding": "C-3 arylated huperzine A derivatives exhibited dual inhibitory activity against acetylcholinesterase and butyrylcholinesterase, but showed poor performance in cytotoxicity and neuroprotection assays.",
-      "limitations": "The derivatives failed to demonstrate effective neuroprotection in the conducted assays.",
-      "source": "PubMed"
-    },
-    {
-      "pmid": "40942152",
-      "title": "Microbiota-Derived Tryptophan Metabolite Indole-3-Propionic Acid-Emerging Role in Neuroprotection.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/40942152/",
-      "disease": "Alzheimer's disease",
+      "pmid": "24738557",
+      "title": "Lithium and autophagy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24738557/",
+      "disease": "Huntington's disease",
       "study_type": "review",
       "molecules_mentioned": [
-        "IPA",
-        "KYNA",
-        "indole-3-propionic acid",
-        "kynurenic acid",
-        "tryptophan"
+        "Lithium",
+        "glycogen synthase kinase-3β",
+        "myo-inositol-1,4,5-trisphosphate"
       ],
-      "main_finding": "Indole-3-propionic acid acts as a free radical scavenger, anti-inflammatory molecule, and ligand for AhR and PXR receptors, supporting its potential neuroprotective role.",
-      "limitations": "Clinical trials are still required to evaluate its therapeutic use in humans.",
+      "main_finding": "Lithium enhances degradation of aggregate-prone proteins and causes damaged mitochondria to degrade in various neuropsychiatric conditions.",
+      "limitations": "The abstract does not provide clinical trial outcomes confirming therapeutic benefit in patients.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "20842175",
+      "title": "Synaptic versus extrasynaptic NMDA receptor signalling: implications for neurodegenerative disorders.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20842175/",
+      "disease": "Huntington's disease",
+      "study_type": "other",
+      "molecules_mentioned": [
+        "Ca(2+)",
+        "N-methyl-D-aspartate"
+      ],
+      "main_finding": "Stimulation of synaptic NMDARs leads to a neuroprotective shield, whereas stimulation of extrasynaptic NMDARs promotes cell death.",
+      "limitations": "The abstract does not report on the development or testing of specific neuroprotective therapies.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "34329735",
+      "title": "Mitophagy in Huntington's disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34329735/",
+      "disease": "Huntington's disease",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Inefficient removal of damaged mitochondria is thought to contribute to the pathogenesis of neurodegenerative diseases such as Huntington's disease.",
+      "limitations": "The abstract does not present experimental data on the pharmacological regulation of mitophagy.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "14587496",
+      "title": "Update on rivastigmine.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14587496/",
+      "disease": "Lewy body disease",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "rivastigmine"
+      ],
+      "main_finding": "Rivastigmine is an effective therapeutic agent for treating cognitive and behavioral symptoms in Alzheimer disease and diffuse Lewy body disease.",
+      "limitations": "The abstract does not provide original clinical data but summarizes findings from previously conducted trials.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "25791052",
+      "title": "[New therapeutic approaches].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25791052/",
+      "disease": "Lewy body disease",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Novel treatment approaches for dementia are aimed at preventing, slowing, or ameliorating the production, aggregation, and deposition of pathological proteins.",
+      "limitations": "This review does not report specific clinical outcomes or efficacy results for the mentioned therapeutic strategies.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "36551882",
+      "title": "Lysophospholipids: A Potential Drug Candidates for Neurodegenerative Disorders.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36551882/",
+      "disease": "Lewy body disease",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Porcine liver decomposition product-derived lysophospholipids may potentially inhibit alpha-synuclein aggregation in neurodegenerative disorders.",
+      "limitations": "The precise mechanisms by which lipids prevent pathological alpha-synuclein aggregation require further clarification.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "41006545",
+      "title": "Identification of small molecule dimethyoxyphenyl piperazine inhibitors of alpha-synuclein fibril growth.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41006545/",
+      "disease": "Lewy body disease",
+      "study_type": "in vitro",
+      "molecules_mentioned": [
+        "epigallocatechin-3-gallate"
+      ],
+      "main_finding": "Two dimethoxyphenyl piperazine analogs were identified that potently inhibit the growth of in-vitro assembled alpha-synuclein fibrils.",
+      "limitations": "The study was conducted in vitro and does not demonstrate efficacy in human subjects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "41262413",
+      "title": "Cholinergic white matter pathways integrity in prodromal and early manifest Lewy body disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41262413/",
+      "disease": "Lewy body disease",
+      "study_type": "other",
+      "molecules_mentioned": [],
+      "main_finding": "Higher microstructural integrity of nucleus basalis of Meynert white matter pathways is associated with better cognitive performance and reduced risk of phenoconversion in isolated rapid eye movement sleep behaviour disorder.",
+      "limitations": "No significant differences in microstructural integrity were observed between patient cohorts and controls at baseline.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "30258234",
+      "title": "Microglia in neurodegeneration.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30258234/",
+      "disease": "frontotemporal dementia",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Microglia perform sentinel, housekeeping, and defense functions, and an imbalance between these functions contributes to the initiation or exacerbation of neurodegeneration.",
+      "limitations": "The abstract does not provide specific clinical data or experimental results from a primary study.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "35814636",
+      "title": "Mitochondria in neurodegeneration.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35814636/",
+      "disease": "frontotemporal dementia",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "PINK1",
+        "PTEN-induced kinase 1"
+      ],
+      "main_finding": "Mitochondrial pathology is strongly implicated in chronic neurodegenerative diseases, involving complex relationships across the mitochondrial life cycle.",
+      "limitations": "The abstract does not present new experimental findings or clinical trial outcomes.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "31779824",
+      "title": "Progressive supranuclear palsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31779824/",
+      "disease": "frontotemporal dementia",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Progressive supranuclear palsy is a neurodegenerative disease characterized by 4 repeat tau deposition, with current therapeutic options being symptomatic and insufficient.",
+      "limitations": "The abstract does not report on the efficacy of any specific new treatment.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "40340943",
+      "title": "Molecular mechanisms and consequences of TDP-43 phosphorylation in neurodegeneration.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40340943/",
+      "disease": "frontotemporal dementia",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "CDC7",
+        "CK1",
+        "CK2",
+        "IKKβ",
+        "MEK1",
+        "PP1",
+        "PP2A",
+        "PP2B",
+        "TTBK1",
+        "TTBK2",
+        "c-Abl",
+        "p38α/MAPK14"
+      ],
+      "main_finding": "The role of TDP-43 phosphorylation in neurodegeneration is site and context dependent, with conflicting evidence suggesting it may either drive disease or serve a neuroprotective role.",
+      "limitations": "The abstract does not resolve the conflicting findings regarding the role of TDP-43 phosphorylation.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "31076275",
+      "title": "Gamma Entrainment Binds Higher-Order Brain Regions and Offers Neuroprotection.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31076275/",
+      "disease": "frontotemporal dementia",
+      "study_type": "animal study",
+      "molecules_mentioned": [],
+      "main_finding": "Chronic daily gamma entrainment using sensory stimuli preserved neuronal and synaptic density and modified cognitive performance in Tau P301S and CK-p25 mouse models.",
+      "limitations": "The findings are based on mouse models and have not been demonstrated in human subjects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "39577925",
+      "title": "Multiple system atrophy: advances in pathophysiology, diagnosis, and treatment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39577925/",
+      "disease": "progressive supranuclear palsy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Progress in understanding α-synuclein seeding and strains has informed revised diagnostic criteria for multiple system atrophy.",
+      "limitations": "No clinical trial has yet provided unequivocal evidence of neuroprotection for this disease.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "31779824",
+      "title": "Progressive supranuclear palsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31779824/",
+      "disease": "progressive supranuclear palsy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "New clinical diagnostic criteria for progressive supranuclear palsy account for phenotypic variability to improve early diagnosis.",
+      "limitations": "There is currently a lack of a validated biomarker for the disease.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "26459661",
+      "title": "Interventions in progressive supranuclear palsy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26459661/",
+      "disease": "progressive supranuclear palsy",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "davunetide",
+        "tideglusib"
+      ],
+      "main_finding": "Recent studies of davunetide and tideglusib failed to improve the clinical outcome of patients with progressive supranuclear palsy.",
+      "limitations": "No effective symptomatic or neuroprotective treatment is currently available for progressive supranuclear palsy.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "32220093",
+      "title": "Progressive Supranuclear Palsy and Statin Use.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32220093/",
+      "disease": "progressive supranuclear palsy",
+      "study_type": "other",
+      "molecules_mentioned": [
+        "atorvastatin",
+        "lovastatin",
+        "pravastatin",
+        "rosuvastatin",
+        "simvastatin"
+      ],
+      "main_finding": "Statins may have inverse associations with progressive supranuclear palsy risk and motor impairment.",
+      "limitations": "Randomized prospective studies are required to confirm the observed effects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "34652482",
+      "title": "[Neuroprotective treatment of tauopathies].",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34652482/",
+      "disease": "progressive supranuclear palsy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Various tau-centered neuroprotective treatment approaches targeting tau expression, aggregation, and spreading are in preclinical and clinical development.",
+      "limitations": "This article provides an overview of concepts rather than reporting results from a specific clinical trial.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "39577925",
+      "title": "Multiple system atrophy: advances in pathophysiology, diagnosis, and treatment.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39577925/",
+      "disease": "multiple system atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Progress in understanding α-synuclein pathophysiology and revised diagnostic criteria have improved the potential for early diagnosis and development of disease-modifying therapies for multiple system atrophy.",
+      "limitations": "No clinical trial has yet provided unequivocal evidence of neuroprotection for multiple system atrophy.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "30166532",
+      "title": "REM sleep behaviour disorder.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30166532/",
+      "disease": "multiple system atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "clonazepam",
+        "melatonin"
+      ],
+      "main_finding": "REM sleep behaviour disorder is a parasomnia characterized by loss of muscle atonia during REM sleep and is recognized as a manifestation of an α-synucleinopathy.",
+      "limitations": "The abstract does not provide results from specific clinical trials evaluating neuroprotective therapies in patients with idiopathic RBD.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "30789229",
+      "title": "Risk and predictors of dementia and parkinsonism in idiopathic REM sleep behaviour disorder: a multicentre study.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30789229/",
+      "disease": "multiple system atrophy",
+      "study_type": "other",
+      "molecules_mentioned": [],
+      "main_finding": "The overall conversion rate from idiopathic REM sleep behaviour disorder to an overt neurodegenerative syndrome was 6.3% per year, with 73.5% converting after 12-year follow-up.",
+      "limitations": "The study does not report the results of actual neuroprotective interventions, only sample size estimates for future trials.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "14747001",
+      "title": "Multiple system atrophy.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14747001/",
+      "disease": "multiple system atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Multiple system atrophy is a sporadic neurodegenerative disorder established as an alpha-synucleinopathy, with diagnosis largely based on clinical expertise and consensus criteria.",
+      "limitations": "The abstract does not provide data on the efficacy of the candidate neuroprotective agents mentioned.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "38157884",
+      "title": "REM sleep behavior disorder: update on diagnosis and management.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38157884/",
+      "disease": "multiple system atrophy",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "REM sleep behavior disorder is strongly associated with synucleinopathies, and polysomnography is necessary to verify the loss of sleep atonia for proper diagnosis.",
+      "limitations": "The abstract does not present clinical trial data regarding the efficacy of specific neuroprotective medications.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "40120689",
+      "title": "Lipid nanoparticle (LNP) mediated mRNA delivery in neurodegenerative diseases.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40120689/",
+      "disease": "Friedreich ataxia",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "mRNA"
+      ],
+      "main_finding": "Lipid nanoparticles offer an efficient solution for encapsulating and protecting mRNA to facilitate its delivery to the central nervous system for treating neurodegenerative diseases.",
+      "limitations": "The review does not provide clinical trial data confirming the efficacy of mRNA-LNP therapies in human patients.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "38256091",
+      "title": "Aging, Neurodegenerative Disorders, and Cerebellum.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38256091/",
+      "disease": "Friedreich ataxia",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "The cerebellum is involved in motor control and cognition, and its function is disrupted during aging and various neurodegenerative disorders.",
+      "limitations": "The functional contributions of the cerebellum and underlying molecular mechanisms in aging and neurodegenerative disorders remain largely unknown.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "40983776",
+      "title": "Progress and challenges in sporadic late-onset cerebellar ataxias.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40983776/",
+      "disease": "Friedreich ataxia",
+      "study_type": "review",
+      "molecules_mentioned": [],
+      "main_finding": "Advances in DNA sequencing and diagnostic criteria have improved the identification of molecular causes for sporadic late-onset cerebellar ataxias.",
+      "limitations": "The review does not provide results from clinical trials of neuroprotective interventions for this condition.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "38631900",
+      "title": "Frataxin deficiency shifts metabolism to promote reactive microglia via glucose catabolism.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38631900/",
+      "disease": "Friedreich ataxia",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "FXN",
+        "GPR109A",
+        "GSH",
+        "Hcar2",
+        "Nrf2",
+        "butyrate",
+        "frataxin",
+        "itaconate"
+      ],
+      "main_finding": "Butyrate supplementation mitigates inflammatory gene expression and improves neuromotor performance in a mouse model of Friedreich's ataxia by correcting metabolic imbalances.",
+      "limitations": "The study does not demonstrate the long-term safety or efficacy of butyrate supplementation in human subjects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "23916831",
+      "title": "Mitochondrial ferritin in neurodegenerative diseases.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23916831/",
+      "disease": "Friedreich ataxia",
+      "study_type": "in vitro",
+      "molecules_mentioned": [
+        "Aβ",
+        "FtMt",
+        "H2O2",
+        "frataxin",
+        "mitochondrial ferritin"
+      ],
+      "main_finding": "Overexpression of mitochondrial ferritin provides a neuroprotective effect against oxidative stress and neurotoxicity in cultured neuroblastoma cells.",
+      "limitations": "The study does not provide evidence of the therapeutic effect of mitochondrial ferritin in living human subjects.",
       "source": "PubMed"
     }
   ]
