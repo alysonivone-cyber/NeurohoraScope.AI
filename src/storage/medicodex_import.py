@@ -41,6 +41,7 @@ def import_medicodex():
             name = fields.get("Disease Name EN", "").strip()
             definition = fields.get("Definition EN", "")
             umls_cui = fields.get("UMLS CUI", "")
+            source = fields.get("Source", "").strip() or "Medicodex"
 
             if not name:
                 continue
@@ -54,7 +55,7 @@ def import_medicodex():
                 except json.JSONDecodeError:
                     print(f"⚠️ JSON-LD invalide : {name}")
 
-            source_url = ""
+            source_url = fields.get("Source URL", "")
 
             for item in seo_data.get("@graph", []):
                 if item.get("@type") == "MedicalWebPage":
@@ -73,14 +74,14 @@ def import_medicodex():
                 name,
                 definition,
                 umls_cui,
-                "Medicodex",
+                source,
                 source_url,
             ))
 
             disease_id = connection.execute("""
                 SELECT id FROM diseases
                 WHERE name = ? AND source = ?
-            """, (name, "Medicodex")).fetchone()[0]
+            """, (name, source)).fetchone()[0]
 
             imported_diseases += 1
 
@@ -116,7 +117,7 @@ def import_medicodex():
                         """, (
                             disease_id,
                             molecule_id,
-                            "Medicodex",
+                            source,
                         ))
 
                         imported_associations += cursor.rowcount

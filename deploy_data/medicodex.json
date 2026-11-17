@@ -199,6 +199,16 @@
             "createdTime": "2023-08-01T17:56:26Z",
             "table": null,
             "linkedTables": null
+        },
+        {
+            "id": "manual-parkinson-disease",
+            "fields": {
+                "Disease Name EN": "Parkinson Disease",
+                "Definition EN": "A progressive neurodegenerative disorder characterized by loss of dopaminergic neurons in the substantia nigra, causing motor symptoms such as tremor, rigidity and bradykinesia.",
+                "UMLS CUI": "C0030567",
+                "Source": "Manual entry (NeurohoraScope.AI)"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
         }
     ],
     "offset": "itrdlypjGFbJkD5eN/recPc3a6xwv4Gq0k2"
