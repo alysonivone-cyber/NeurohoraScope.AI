@@ -210,6 +210,105 @@
                 "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Parkinson Disease\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Levodopa\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Istradefylline\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Rotigotine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Entacapone\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Tolcapone\"}}]}]}]}"
             },
             "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-multiple-sclerosis",
+            "fields": {
+                "Disease Name EN": "Multiple Sclerosis",
+                "Definition EN": "A chronic immune-mediated disease of the central nervous system in which myelin and nerve fibers are damaged, causing neurological symptoms that vary widely between patients.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Multiple Sclerosis\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Alemtuzumab\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Dimethyl fumarate\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Fenebrutinib\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"GW-1000-02\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Glatiramer acetate\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Interferon beta-1a\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Ocrelizumab\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Ozanimod\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-amyotrophic-lateral-sclerosis",
+            "fields": {
+                "Disease Name EN": "Amyotrophic Lateral Sclerosis",
+                "Definition EN": "A progressive neurodegenerative disease that affects motor neurons in the brain and spinal cord, causing muscle weakness and loss of voluntary movement.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Amyotrophic Lateral Sclerosis\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"ABBV-CLS-7262\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"CNM-Au8\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"DNL343\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Dexpramipexole\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Levosimendan\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"MediCabilis CBD Oil\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Minocycline\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"NUZ-001\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Pridopidine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"SLS-005 Trehalose\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Verdiperstat\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Zilucoplan\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-huntington-disease",
+            "fields": {
+                "Disease Name EN": "Huntington Disease",
+                "Definition EN": "An inherited neurodegenerative disorder that causes progressive motor, cognitive and psychiatric symptoms.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Huntington Disease\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Dimebon (latrepirdine)\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Minocycline\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Olanzapine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Pridopidine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"RO7234292 (RG6042)\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Riluzole\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"SKY-0515\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Tiapridal\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Votoplam\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Xenazine\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-lewy-body-disease",
+            "fields": {
+                "Disease Name EN": "Lewy Body Disease",
+                "Definition EN": "A neurodegenerative disorder characterized by abnormal deposits of alpha-synuclein (Lewy bodies) in the brain, associated with dementia and parkinsonism.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Lewy Body Disease\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Donanemab\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Donepezil\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Galantamine\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-frontotemporal-dementia",
+            "fields": {
+                "Disease Name EN": "Frontotemporal Dementia",
+                "Definition EN": "A group of neurodegenerative disorders affecting the frontal and temporal lobes, causing changes in behavior, personality and language.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Frontotemporal Dementia\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"ARO-MAPT-SC\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"ET-STEM\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Galantamine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Memantine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"PBFT02\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Syntocinon\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-progressive-supranuclear-palsy",
+            "fields": {
+                "Disease Name EN": "Progressive Supranuclear Palsy",
+                "Definition EN": "A rare neurodegenerative disorder associated with tau pathology, causing problems with balance, eye movements and cognition.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Progressive Supranuclear Palsy\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"FNP-223\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"GV1001\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Salsalate\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Valproic acid\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-multiple-system-atrophy",
+            "fields": {
+                "Disease Name EN": "Multiple System Atrophy",
+                "Definition EN": "A rare progressive neurodegenerative disorder involving autonomic failure with parkinsonian or cerebellar features.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Multiple System Atrophy\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"3-N-butylphthalide\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Fluoxétine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Foralumab\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"TAK-341\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"TEV-56286\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Tllsh2910\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-friedreich-ataxia",
+            "fields": {
+                "Disease Name EN": "Friedreich Ataxia",
+                "Definition EN": "An inherited neurodegenerative disorder that causes progressive loss of coordination, affecting the nervous system and the heart.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Friedreich Ataxia\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"CTI-1601\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Idebenone\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"MIN-102\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Nomlabofusp\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Omaveloxolone\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Vatiquinone\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
+        },
+        {
+            "id": "trials-spinal-muscular-atrophy",
+            "fields": {
+                "Disease Name EN": "Spinal Muscular Atrophy",
+                "Definition EN": "An inherited neuromuscular disease caused by the loss of motor neurons in the spinal cord, leading to progressive muscle weakness.",
+                "UMLS CUI": "",
+                "Source": "ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Spinal Muscular Atrophy\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Apitegromab\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Hydroxyurea\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Levocarnitine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Nusinersen\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Salanersen\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Valproate\"}}]}]}]}"
+            },
+            "createdTime": "2026-11-17T00:00:00.000Z"
         }
     ],
     "offset": "itrdlypjGFbJkD5eN/recPc3a6xwv4Gq0k2"

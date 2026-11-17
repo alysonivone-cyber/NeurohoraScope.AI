@@ -30,7 +30,7 @@ From the project root:
 .\.venv\Scripts\python.exe mcp_server.py
 ```
 
-Default transport is stdio. To start streamable HTTP, set `MCP_TRANSPORT=streamable-http` in the process environment and run the same entry point. The standard MCP path is typically `/mcp`; verify actual host, port, routing, and public accessibility before sharing a URL. **This archive has not been deployed.**
+Default transport is stdio. To start streamable HTTP, set `MCP_TRANSPORT=streamable-http` in the process environment and run the same entry point. The standard MCP path is typically `/mcp`; verify actual host, port, routing, and public accessibility before sharing a URL. **Public demo:** `https://neurohorascope-ai.onrender.com/mcp` (demonstration mode without authentication; the Gemini tool is disabled there).
 
 ## Gemini processing
 
