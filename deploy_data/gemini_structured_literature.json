@@ -1,0 +1,158 @@
+{
+  "generated_by": "Gemini (gemini-3.1-flash-lite)",
+  "generated_at": "2026-11-17T10:25:11+00:00",
+  "pipeline": "PubMed abstracts -> Gemini structuring -> validation -> MCP",
+  "scientific_note": "Generated offline by an AI model from PubMed abstracts, not a live call. Fields are extracted from abstracts only; they are not validated scientific conclusions and do not establish efficacy or safety.",
+  "publications": [
+    {
+      "pmid": "31295812",
+      "title": "Potential Benefits of Nobiletin, A Citrus Flavonoid, against Alzheimer's Disease and Parkinson's Disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31295812/",
+      "disease": "Parkinson's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "nobiletin"
+      ],
+      "main_finding": "Nobiletin improved cognitive deficits and the pathological features of Alzheimer's disease, as well as motor and cognitive deficits in Parkinson's disease animal models.",
+      "limitations": "The abstract does not report results from human clinical trials.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "41152735",
+      "title": "FGF21 confers neuroprotection in Parkinson's disease by activating the FGFR1-sirt1 pathway.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41152735/",
+      "disease": "Parkinson's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "1-methyl-4-phenyl-1,2,3,6-te-trahydropyridine",
+        "FGF21",
+        "Fibroblast growth factor 21",
+        "LPS",
+        "MPTP",
+        "lipopolysaccharides"
+      ],
+      "main_finding": "FGF21 exerts multi-faceted protection in Parkinson's disease via the FGFR1-Sirt1 axis, including blood-brain barrier repair and mitochondrial homeostasis restoration.",
+      "limitations": "The study relies on mouse models and in vitro microglia stimulation rather than human subjects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "32087283",
+      "title": "Neuroprotection by dihydrotestosterone in LPS-induced neuroinflammation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32087283/",
+      "disease": "Parkinson's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "DHT",
+        "LPS",
+        "dihydrotestosterone",
+        "lipopolysaccharide",
+        "testosterone"
+      ],
+      "main_finding": "Dihydrotestosterone exerts anti-neuroinflammatory and neuroprotective effects by suppressing TLR4-mediated NF-κB and MAPK signaling pathways.",
+      "limitations": "The study does not provide clinical evidence in human subjects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "25408503",
+      "title": "Neuroprotection by saponins.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25408503/",
+      "disease": "Parkinson's disease",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "Saponins"
+      ],
+      "main_finding": "Saponins have significant neuroprotective effects on the attenuation of central nervous system disorders, such as stroke, Alzheimer's disease, Parkinson's disease, and Huntington's disease.",
+      "limitations": "The mechanisms underlying the observed effects remain incomplete.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "38471370",
+      "title": "Asiaticoside exerts neuroprotection through targeting NLRP3 inflammasome activation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38471370/",
+      "disease": "Parkinson's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "1-Methyl-4-phenyl-1,2,3,6-tetrahydropyridine",
+        "AS",
+        "Asiaticoside",
+        "MPTP"
+      ],
+      "main_finding": "Asiaticoside alleviates Parkinson's disease symptoms induced by MPTP by binding to the NLRP3 protein and inhibiting inflammasome assembly.",
+      "limitations": "The study does not provide evidence of efficacy in human Parkinson's disease patients.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "31295812",
+      "title": "Potential Benefits of Nobiletin, A Citrus Flavonoid, against Alzheimer's Disease and Parkinson's Disease.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31295812/",
+      "disease": "Alzheimer's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "nobiletin"
+      ],
+      "main_finding": "Nobiletin improved cognitive deficits and the pathological features of Alzheimer's disease, as well as motor and cognitive deficits in Parkinson's disease animal models.",
+      "limitations": "The abstract does not report results from human clinical trials.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "32087283",
+      "title": "Neuroprotection by dihydrotestosterone in LPS-induced neuroinflammation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32087283/",
+      "disease": "Alzheimer's disease",
+      "study_type": "animal study",
+      "molecules_mentioned": [
+        "DHT",
+        "LPS",
+        "dihydrotestosterone",
+        "lipopolysaccharide",
+        "testosterone"
+      ],
+      "main_finding": "Dihydrotestosterone exerts anti-neuroinflammatory and neuroprotective effects by suppressing TLR4-mediated NF-κB and MAPK signaling pathways.",
+      "limitations": "The study does not provide clinical evidence in human subjects.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "25408503",
+      "title": "Neuroprotection by saponins.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25408503/",
+      "disease": "Alzheimer's disease",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "Saponins"
+      ],
+      "main_finding": "Saponins have significant neuroprotective effects on the attenuation of central nervous system disorders, such as stroke, Alzheimer's disease, Parkinson's disease, and Huntington's disease.",
+      "limitations": "The mechanisms underlying the observed effects remain incomplete.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "39053739",
+      "title": "Design, synthesis and anti-Alzheimer's disease activity evaluation of C-3 arylated huperzine A derivatives.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39053739/",
+      "disease": "Alzheimer's disease",
+      "study_type": "in vitro",
+      "molecules_mentioned": [
+        "huperzine A"
+      ],
+      "main_finding": "C-3 arylated huperzine A derivatives exhibited dual inhibitory activity against acetylcholinesterase and butyrylcholinesterase, but showed poor performance in cytotoxicity and neuroprotection assays.",
+      "limitations": "The derivatives failed to demonstrate effective neuroprotection in the conducted assays.",
+      "source": "PubMed"
+    },
+    {
+      "pmid": "40942152",
+      "title": "Microbiota-Derived Tryptophan Metabolite Indole-3-Propionic Acid-Emerging Role in Neuroprotection.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40942152/",
+      "disease": "Alzheimer's disease",
+      "study_type": "review",
+      "molecules_mentioned": [
+        "IPA",
+        "KYNA",
+        "indole-3-propionic acid",
+        "kynurenic acid",
+        "tryptophan"
+      ],
+      "main_finding": "Indole-3-propionic acid acts as a free radical scavenger, anti-inflammatory molecule, and ligand for AhR and PXR receptors, supporting its potential neuroprotective role.",
+      "limitations": "Clinical trials are still required to evaluate its therapeutic use in humans.",
+      "source": "PubMed"
+    }
+  ]
+}

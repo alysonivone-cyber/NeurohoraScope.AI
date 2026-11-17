@@ -353,11 +353,43 @@ def generate_integrated_research_report(
 @mcp.tool()
 def analyze_scientific_evidence_with_gemini(
     max_records: int = 7,
+    disease: str = "",
 ) -> dict:
-    """Analyze local ChEMBL evidence with Gemini and scientific validation."""
+    """Analyze evidence with Gemini. On the public demo, serve the stored Gemini-structured PubMed data."""
 
     if os.getenv("MCP_PUBLIC_DEMO", "false").lower() == "true":
-        return {"status": "disabled", "message": "Gemini is disabled on the public demonstration endpoint."}
+        stored_path = (
+            Path(__file__).resolve().parents[2]
+            / "deploy_data"
+            / "gemini_structured_literature.json"
+        )
+        if not stored_path.is_file():
+            return {"status": "disabled", "message": "Gemini is disabled on the public demonstration endpoint."}
+        try:
+            stored = json.loads(stored_path.read_text(encoding="utf-8"))
+            publications = stored.get("publications", [])
+            wanted = disease.strip().lower()
+            if wanted:
+                publications = [
+                    p for p in publications
+                    if wanted in p.get("disease", "").lower()
+                ]
+            limit = max(1, min(max_records, 20))
+            return {
+                "status": "precomputed",
+                "message": (
+                    "Gemini cannot be called live on the public demonstration endpoint. "
+                    "These records were structured by Gemini offline from PubMed abstracts and stored."
+                ),
+                "generated_by": stored.get("generated_by"),
+                "generated_at": stored.get("generated_at"),
+                "pipeline": stored.get("pipeline"),
+                "records_returned": len(publications[:limit]),
+                "publications": publications[:limit],
+                "scientific_note": stored.get("scientific_note"),
+            }
+        except Exception:
+            return {"status": "disabled", "message": "Gemini is disabled on the public demonstration endpoint."}
 
     if not 1 <= max_records <= 20:
         return {
