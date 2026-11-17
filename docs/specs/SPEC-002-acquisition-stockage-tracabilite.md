@@ -3,7 +3,7 @@
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
 **Version documentaire :** 1.2
-**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Date :** 17 novembre 2026 (mise à jour ; états historiques des 29 octobre et 4 novembre conservés)
 **Statut :** Acquisition externe et Medicodex testés — stockage/cache/provenance à auditer
 
 ## 1. Objectif
@@ -72,7 +72,9 @@ Medicodex est une source locale utilisée pour organiser des associations entre 
 
 Le fichier de données identifié dans la documentation technique est :
 
-`data/medicodex.json`
+`data/medicodex.json` (copie locale, ignorée par Git) et, pour le déploiement, **`deploy_data/medicodex.json`** (versionné). Au démarrage, la base SQLite est reconstruite à partir de ce dernier fichier.
+
+Chaque enregistrement peut porter un champ `Source` propre ; à défaut, la valeur `Medicodex` est utilisée. La contrainte `UNIQUE(name, source)` permet de distinguer l'origine de chaque maladie (voir la mise à jour du 17 novembre 2026, section 14).
 
 Ces associations doivent être interprétées comme des informations de recherche, et non comme des recommandations thérapeutiques validées.
 
@@ -265,9 +267,32 @@ SPEC-002 pourra être considérée comme entièrement validée lorsque :
 - **PubMed :** `search_neuroscience_literature` invoqué depuis Claude via le MCP public après le déploiement `1f7216f` ; trois publications sur Parkinson, avec titres, PMID `38598580`, `31295812`, `41152735` et URL PubMed.
 - **ChEMBL :** consultation de Levodopa (`CHEMBL1009`), de mécanismes annotés, de la cible DRD3 (`CHEMBL234`) et de résultats d'activité ; les annotations de mécanisme ne doivent pas être confondues avec une preuve mécanistique ou clinique définitive.
 - **ClinicalTrials.gov :** recherche d'essais sur Parkinson et sur Levodopa fonctionnelle dans les scénarios testés ; les réponses sont limitées/filtrées et ne représentent pas nécessairement l'ensemble des études.
-- **Medicodex :** base locale consultable ; huit maladies et 195 associations maladie-molécule observées lors des contrôles précédents. La recherche `Alzheimer` renvoie une entrée ; Parkinson ne figure pas dans le jeu de huit maladies examiné. L'absence de résultat n'est donc pas une panne de recherche.
+- **Medicodex :** base locale consultable ; huit maladies et 195 associations maladie-molécule observées lors des contrôles précédents (*état du 4 novembre, remplacé par la section 14*). La recherche `Alzheimer` renvoie une entrée ; Parkinson ne figure pas dans le jeu de huit maladies examiné. L'absence de résultat n'est donc pas une panne de recherche.
 - **Données pour Gemini :** `reports/exact_activity_matches.json` et `deploy_data/exact_activity_matches.json` présents localement, chacun avec sept observations au moment du contrôle. Le processeur sélectionne le fichier local en priorité.
 
 ### Limites de validation
 
 Les tests confirment l'accès et des réponses réelles pour ces cas, **pas** l'exhaustivité des clients, la fraîcheur et la déduplication SQLite, l'invalidation des caches, la provenance complète ni les scénarios de panne réseau. Les cases historiques du 29 octobre restent des instantanés et ne doivent pas être interprétées comme le statut final du 4 novembre.
+
+---
+
+## 14. Mise à jour — 17 novembre 2026
+
+### Changements apportés à Medicodex
+
+- `src/storage/medicodex_import.py` : lecture d'un champ `Source` par enregistrement (valeur par défaut `Medicodex`), utilisé dans l'insertion des maladies, la recherche d'identifiant et l'insertion des associations.
+- `deploy_data/medicodex.json` : **18 maladies** et **261 associations maladie-molécule** après import au démarrage (journaux Render).
+- Enregistrement **Parkinson** ajouté manuellement (`Source` : « Manual entry (NeurohoraScope.AI) », UMLS CUI `C0030567`, cinq molécules).
+- **Neuf maladies neurodégénératives** ajoutées à partir de résultats ClinicalTrials.gov (`Source` : « ClinicalTrials.gov (via NeurohoraScope.AI, 2026-11-17) »). Leur UMLS CUI est volontairement laissé vide : aucun identifiant n'a été inventé.
+- Commit de référence : `5db4f9a`, déployé sur Render (état Live).
+
+### Interprétation
+
+- Les associations issues d'essais cliniques indiquent qu'une molécule a été étudiée pour une maladie ; elles **ne constituent pas** une indication thérapeutique établie (DATA-011).
+- Les entrées manuelles et issues d'essais sont distinguées par leur champ `Source` des entrées Medicodex d'origine.
+- La recherche `Parkinson` ne renvoie donc plus un résultat vide ; la remarque du 4 novembre sur son absence est historique.
+
+### Limites
+
+- Le jeu n'est pas exhaustif : certaines maladies neurodégénératives (par exemple l'ataxie spinocérébelleuse) ne sont pas incluses.
+- Les CUI UMLS des neuf maladies issues des essais restent à renseigner.

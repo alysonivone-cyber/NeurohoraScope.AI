@@ -3,7 +3,7 @@
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
 **Version documentaire :** 1.2
-**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Date :** 17 novembre 2026 (mise à jour ; états historiques conservés)
 **Statut :** Serveur MCP HTTPS Live et testé avec Claude — mode public non authentifié
 
 ## 1. Objectif
@@ -321,3 +321,14 @@ SPEC-005 sera considérée comme entièrement validée lorsque :
 - **Confirmé séparément :** analyse de données ChEMBL avec l'API Gemini en local, réponse validée.
 - **À expliciter :** le flux « Gemini exécuté par Claude via le MCP distant » n'est pas démontré dans le mode public actuel. Le sujet du professeur représente une chaîne de traitement IA vers MCP ; le degré d'intégration attendu entre ces étapes devra être confirmé si une démonstration bout-en-bout est exigée.
 - **Livrables explicitement demandés dans le PDF :** dépôt Git et URL publique du MCP, avant le 17 novembre 2026 à 23:59 CET. Aucune capture d'écran n'y est exigée.
+
+---
+
+## Mise à jour — 17 novembre 2026
+
+- Le serveur public `https://neurohorascope-ai.onrender.com/mcp` reste en mode démonstration (`MCP_PUBLIC_DEMO=true`, `MCP_REQUIRE_AUTH=false`) ; le README le mentionne désormais comme démonstration publique.
+- Dernier déploiement : commit `5db4f9a`, Live ; journaux : 18 maladies et 261 associations chargées.
+- Les **12 outils** ont été réexécutés via le connecteur Claude : `analyze_scientific_evidence_with_gemini` renvoie toujours `status: disabled` en mode public, comme attendu. Les 11 autres ont répondu.
+- La clé Gemini a été remplacée ; elle ne doit exister que dans les variables d'environnement Render, jamais dans le dépôt.
+- Le premier appel après une période d'inactivité peut dépasser 50 secondes (offre gratuite Render).
+- Inchangé : aucune authentification, appel Gemini de bout en bout depuis Claude non démontré.

@@ -3,7 +3,7 @@
 **Projet :** NeurohoraScope.AI
 **Domaine :** Neuropharmacologie computationnelle
 **Version documentaire :** 1.2
-**Date :** 4 novembre 2026 (mise à jour ; état historique du 29 octobre conservé)
+**Date :** 17 novembre 2026 (mise à jour ; états historiques conservés)
 **Statut :** Gemini validé en local — désactivé sur MCP public
 
 ## 1. Objectif
@@ -292,3 +292,10 @@ Le résultat applicatif observé contient `status`, `project`, `source`, `record
 ### Portée exacte
 
 La réussite locale prouve le fonctionnement de l'appel à l'API et des validations **sur deux enregistrements** ; elle ne démontre ni la fiabilité générale des analyses IA ni l'exécution de Gemini depuis un client MCP distant. Les tests de réponses malformées, erreurs réseau/quota, cas scientifiques atypiques et traçabilité exhaustive restent à effectuer. Les contrôles sémantiques restent ciblés et non exhaustifs.
+
+---
+
+## 15. Mise à jour — 17 novembre 2026
+
+- Le 17 novembre, l'outil `analyze_scientific_evidence_with_gemini` a été rappelé via le MCP public : réponse `status: disabled` (« Gemini is disabled on the public demonstration endpoint »), conforme à la conception.
+- La clé `GEMINI_API_KEY` a été remplacée ; l'ancienne clé doit être révoquée. La validation Gemini réelle du 4 novembre (section 14) reste un test **local**.
