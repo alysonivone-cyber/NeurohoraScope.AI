@@ -354,10 +354,21 @@ def generate_integrated_research_report(
 def analyze_scientific_evidence_with_gemini(
     max_records: int = 7,
     disease: str = "",
+    live: bool = True,
 ) -> dict:
-    """Analyze evidence with Gemini. On the public demo, serve the stored Gemini-structured PubMed data."""
+    """Structure PubMed abstracts of a neurological disease with Gemini (live call, with stored fallback on the public demo)."""
 
     if os.getenv("MCP_PUBLIC_DEMO", "false").lower() == "true":
+        fallback_reason = ""
+        if live and disease.strip():
+            try:
+                from src.ai.gemini_structure_literature import LiveUnavailable, live_structure
+
+                return live_structure(disease)
+            except LiveUnavailable as reason:
+                fallback_reason = str(reason)
+            except Exception:
+                fallback_reason = "live Gemini call failed"
         stored_path = (
             Path(__file__).resolve().parents[2]
             / "deploy_data"
@@ -378,8 +389,8 @@ def analyze_scientific_evidence_with_gemini(
             return {
                 "status": "precomputed",
                 "message": (
-                    "Gemini cannot be called live on the public demonstration endpoint. "
-                    "These records were structured by Gemini offline from PubMed abstracts and stored."
+                    "Stored records structured by Gemini offline from PubMed abstracts."
+                    + (f" Live call not used: {fallback_reason}." if fallback_reason else "")
                 ),
                 "generated_by": stored.get("generated_by"),
                 "generated_at": stored.get("generated_at"),

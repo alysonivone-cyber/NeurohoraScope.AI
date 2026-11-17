@@ -34,6 +34,10 @@ DISEASES = [
     "spinal muscular atrophy",
 ]
 PER_DISEASE = 5
+def _warn(message):
+    print(message, file=sys.stderr)
+
+
 OUTPUT_PATH = Path(__file__).resolve().parents[2] / "deploy_data" / "gemini_structured_literature.json"
 
 
@@ -66,7 +70,7 @@ Input publications:
 """
 
 
-def call_gemini(prompt):
+def call_gemini(prompt, attempts=3):
     """Call Gemini and return the parsed JSON object."""
     from google import genai
     from google.genai import types
@@ -77,7 +81,7 @@ def call_gemini(prompt):
 
     client = genai.Client(api_key=api_key)
     last_error = None
-    for attempt in range(3):
+    for attempt in range(attempts):
         try:
             response = client.models.generate_content(
                 model=MODEL,
@@ -111,7 +115,7 @@ def validate_and_merge(publications, response):
     for pub in publications:
         row = by_pmid.get(pub["pmid"])
         if row is None:
-            print(f"  ignore PMID {pub['pmid']}: absent de la reponse Gemini")
+            _warn(f"  ignore PMID {pub['pmid']}: absent de la reponse Gemini")
             continue
 
         text = f"{pub['title']} {pub['abstract']}".lower()
@@ -120,7 +124,7 @@ def validate_and_merge(publications, response):
             if isinstance(name, str) and name.strip() and name.strip().lower() in text:
                 molecules.append(name.strip())
             else:
-                print(f"  molecule rejetee (absente du texte) : {name!r}")
+                _warn(f"  molecule rejetee (absente du texte) : {name!r}")
 
         structured.append(
             {
@@ -141,14 +145,101 @@ def validate_and_merge(publications, response):
     return structured
 
 
-def collect_publications(disease):
+def collect_publications(disease, limit=PER_DISEASE):
     from src.clients.pubmed_client import search_pubmed
 
     query = f'("{disease}"[Title/Abstract]) AND neuroprotection'
-    found = search_pubmed(query, max_results=PER_DISEASE * 2)
-    kept = [p for p in found if p.get("abstract", "").strip()][:PER_DISEASE]
+    found = search_pubmed(query, max_results=limit * 2)
+    kept = [p for p in found if p.get("abstract", "").strip()][:limit]
     time.sleep(0.5)
     return [{**pub, "disease": disease} for pub in kept]
+
+
+# ---------------------------------------------------------------------------
+# Live mode used by the MCP server (bounded: known diseases only, small batches,
+# daily cap, one-hour cache). The API key never leaves the server environment.
+# ---------------------------------------------------------------------------
+
+LIVE_PER_DISEASE = 3
+LIVE_CACHE_SECONDS = 3600
+_live_cache = {}
+_live_usage = {"day": None, "count": 0}
+
+_ALIASES = {
+    "sclérose en plaques": "multiple sclerosis",
+    "sclerose en plaques": "multiple sclerosis",
+    "sep": "multiple sclerosis",
+    "sla": "amyotrophic lateral sclerosis",
+    "sclérose latérale amyotrophique": "amyotrophic lateral sclerosis",
+    "huntington": "Huntington's disease",
+    "lewy": "Lewy body disease",
+    "friedreich": "Friedreich ataxia",
+    "atrophie musculaire spinale": "spinal muscular atrophy",
+    "amyotrophie spinale": "spinal muscular atrophy",
+}
+
+
+class LiveUnavailable(Exception):
+    """Live Gemini structuring cannot be used for this request."""
+
+
+def resolve_disease(name):
+    wanted = (name or "").strip().lower()
+    if not wanted:
+        return None
+    if wanted in _ALIASES:
+        wanted = _ALIASES[wanted].lower()
+    for disease in DISEASES:
+        low = disease.lower()
+        if wanted in low or low in wanted:
+            return disease
+    return None
+
+
+def live_structure(name):
+    """Fetch a few PubMed abstracts and structure them with Gemini right now."""
+    disease = resolve_disease(name)
+    if disease is None:
+        raise LiveUnavailable("disease not covered by the live mode")
+    if not os.getenv("GEMINI_API_KEY", "").strip():
+        raise LiveUnavailable("Gemini key not configured on the server")
+
+    now = time.time()
+    cached = _live_cache.get(disease)
+    if cached and now - cached[0] < LIVE_CACHE_SECONDS:
+        return {**cached[1], "cache": "result generated live less than one hour ago"}
+
+    limit = int(os.getenv("GEMINI_LIVE_DAILY_LIMIT", "30"))
+    today = datetime.now(timezone.utc).date().isoformat()
+    if _live_usage["day"] != today:
+        _live_usage["day"], _live_usage["count"] = today, 0
+    if _live_usage["count"] >= limit:
+        raise LiveUnavailable("daily live limit reached")
+    _live_usage["count"] += 1
+
+    publications = collect_publications(disease, LIVE_PER_DISEASE)
+    if not publications:
+        raise LiveUnavailable("no PubMed abstract found")
+    response = call_gemini(build_prompt(publications), attempts=2)
+    rows = validate_and_merge(publications, response)
+
+    result = {
+        "status": "success",
+        "mode": "live",
+        "message": "Structured by Gemini just now from PubMed abstracts (live call from the MCP server).",
+        "generated_by": f"Gemini ({MODEL})",
+        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "disease": disease,
+        "records_returned": len(rows),
+        "publications": rows,
+        "scientific_note": (
+            "Generated by an AI model from PubMed abstracts. Fields are extracted from "
+            "abstracts only; they are not validated scientific conclusions and do not "
+            "establish efficacy or safety."
+        ),
+    }
+    _live_cache[disease] = (now, result)
+    return result
 
 
 def main():
