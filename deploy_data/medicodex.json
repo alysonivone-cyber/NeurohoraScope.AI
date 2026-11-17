@@ -206,7 +206,8 @@
                 "Disease Name EN": "Parkinson Disease",
                 "Definition EN": "A progressive neurodegenerative disorder characterized by loss of dopaminergic neurons in the substantia nigra, causing motor symptoms such as tremor, rigidity and bradykinesia.",
                 "UMLS CUI": "C0030567",
-                "Source": "Manual entry (NeurohoraScope.AI)"
+                "Source": "Manual entry (NeurohoraScope.AI)",
+                "SEO:JSON-LD EN": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"MedicalWebPage\",\"name\":\"Parkinson Disease\",\"inLanguage\":\"en\",\"mentions\":[{\"@type\":\"ItemList\",\"name\":\"Active ingredients\",\"itemListElement\":[{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Levodopa\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Istradefylline\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Rotigotine\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Entacapone\"}},{\"@type\":\"ListItem\",\"item\":{\"@type\":\"MolecularEntity\",\"name\":\"Tolcapone\"}}]}]}]}"
             },
             "createdTime": "2026-11-17T00:00:00.000Z"
         }
