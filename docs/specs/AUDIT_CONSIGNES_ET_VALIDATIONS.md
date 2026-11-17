@@ -13,12 +13,12 @@
 
 | Point | Statut | Preuve disponible |
 |---|---|---|
-| Dépôt Git | Confirmé | `main`, commit `b79796a` (17 nov. ; `1f7216f` le 4 nov.) |
-| Serveur HTTPS Render | Confirmé | `/mcp`, déploiement Live du 17 novembre (commit `b79796a`) |
+| Dépôt Git | Confirmé | `main`, commit `75e2c53` (17 nov. ; `1f7216f` le 4 nov.) |
+| Serveur HTTPS Render | Confirmé | `/mcp`, déploiement Live du 17 novembre (commit `75e2c53`) |
 | Client Claude distant | Confirmé | Recherche PubMed : trois publications avec PMID et URL |
 | Outils MCP | 12 découverts | 12 outils exécutés le 17 nov. ; l'outil Gemini sert des données pré-calculées en public (`precomputed`) |
 | IA externe Gemini | Confirmé localement | HTTP 200, `status: success`, deux observations BTK |
-| Données structurées par Gemini servies à Claude | Confirmé (17 nov.) | `status: precomputed`, 10 publications ; générées hors ligne |
+| Données structurées par Gemini servies à Claude | Confirmé (17 nov.) | `status: precomputed`, 55 publications (11 maladies) ; générées hors ligne |
 | Appel Gemini **en direct** par Claude sur Render | Non démontré | Volontairement non exposé (`MCP_PUBLIC_DEMO=true`) |
 | Authentification du MCP public | Non | Mode démonstration sans authentification |
 | Tests exhaustifs de sécurité et scientifique | Non démontrés | À distinguer des scénarios réussis |
@@ -28,7 +28,7 @@
 - Medicodex : 18 maladies et 261 associations (dont Parkinson, ajouté manuellement, et neuf maladies issues de ClinicalTrials.gov), champ `Source` par enregistrement, fichier de déploiement `deploy_data/medicodex.json`. Voir SPEC-002, section 14.
 - Les affirmations « huit maladies / 195 associations » et « Parkinson absent » datent du 4 novembre et sont **historiques**.
 - Clé Gemini remplacée ; ancienne clé révoquée.
-- Étape IA ajoutée : Gemini structure hors ligne 10 résumés PubMed ; le MCP sert le résultat (SPEC-004, section 15). Le schéma du professeur (données brutes, IA, données structurées, MCP, client) est donc suivi, avec un traitement IA exécuté hors ligne.
+- Étape IA ajoutée : Gemini structure hors ligne 55 résumés PubMed (11 maladies neurologiques) ; le MCP sert le résultat (SPEC-004, section 15). Le schéma du professeur (données brutes, IA, données structurées, MCP, client) est donc suivi, avec un traitement IA exécuté hors ligne.
 
 ## Attention à la lecture des SPEC
 

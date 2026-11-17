@@ -299,19 +299,20 @@ La réussite locale prouve le fonctionnement de l'appel à l'API et des validati
 
 ### Étape IA hors ligne, servie par le MCP
 
-- Nouveau module `src/ai/gemini_structure_literature.py` : récupère 5 résumés PubMed pour Parkinson et 5 pour Alzheimer, les envoie à Gemini (`gemini-3.1-flash-lite`, température 0, réponse JSON) et enregistre le résultat dans `deploy_data/gemini_structured_literature.json`. La clé `GEMINI_API_KEY` est lue dans l'environnement local et n'est jamais écrite dans le dépôt.
+- Nouveau module `src/ai/gemini_structure_literature.py` : récupère 5 résumés PubMed pour chacune des 11 maladies neurologiques de la base locale (Alzheimer, Parkinson, sclérose en plaques, SLA, Huntington, corps de Lewy, démence frontotemporale, paralysie supranucléaire progressive, atrophie multisystématisée, ataxie de Friedreich, amyotrophie spinale), les envoie à Gemini (un appel par maladie) (`gemini-3.1-flash-lite`, température 0, réponse JSON) et enregistre le résultat dans `deploy_data/gemini_structured_literature.json`. La clé `GEMINI_API_KEY` est lue dans l'environnement local et n'est jamais écrite dans le dépôt.
 - Champs structurés par publication : type d'étude, molécules citées, résultat principal, limites. Le titre, l'URL et le PMID sont repris de PubMed, pas de Gemini.
 - Validation déterministe : toute molécule qui ne figure pas textuellement dans le titre ou le résumé est rejetée ; une publication absente de la réponse est ignorée ; l'exécution échoue sans écrire de fichier si Gemini ne répond pas.
-- Exécution du 17 novembre 2026 : 10 publications structurées (sept articles distincts, trois étant retrouvés pour les deux maladies). Commit `b79796a`, déployé sur Render.
+- Exécution du 17 novembre 2026 : **55 publications structurées** (5 par maladie, 11 maladies ; certains articles apparaissent pour plusieurs maladies). Commit `75e2c53`, déployé sur Render. Une première exécution (Parkinson et Alzheimer, 10 publications, commit `b79796a`) a précédé cette version.
 - L'outil `analyze_scientific_evidence_with_gemini`, en mode démo public, ne fait **plus d'appel Gemini en direct** : il renvoie ce fichier avec `status: precomputed`, la date de génération et une note indiquant que les données ont été générées hors ligne. Il accepte un filtre `disease`. Si le fichier est absent ou illisible, il renvoie `status: disabled`.
 - Hors démo, l'outil conserve l'analyse en direct de `exact_activity_matches.json` (validation du 4 novembre, section 14).
 
 ### Vérification observée
 
-Depuis Claude, le 17 novembre : appel avec `disease="Parkinson"` (5 publications Parkinson filtrées, 3 renvoyées avec `max_records=3`) et appel avec `max_records=20` (10 publications). Réponses conformes.
+Depuis Claude, le 17 novembre, sur les données finales : appels filtrés `disease="Friedreich"` et `disease="multiple sclerosis"` (5 publications chacun, réponses conformes, `generated_at` du 17 novembre 11:39 CET). Le filtre fonctionne par sous-chaîne sur le nom de la maladie.
 
 ### Limites
 
 - Un appel Gemini **en direct** depuis Claude sur le serveur public n'est pas démontré, par choix, pour protéger la clé et le quota.
 - Les champs structurés sont extraits de résumés par une IA : ce ne sont pas des conclusions scientifiques validées. La liste de molécules peut contenir des abréviations et des composés qui ne sont pas des médicaments (par exemple LPS, MPTP).
-- Le fichier est un import initial : il n'est pas rafraîchi automatiquement.
+- Pour les maladies rares, la requête PubMed (qui inclut « neuroprotection ») renvoie parfois des articles peu spécifiques à la maladie (par exemple pour l'ataxie de Friedreich). La liste « molécules citées » peut contenir des gènes, des cytokines ou des abréviations.
+- Le fichier est un import initial : il n'est pas rafraîchi automatiquement. Les 7 maladies non neurologiques de la base ne sont pas traitées par cette étape.

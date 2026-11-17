@@ -299,5 +299,5 @@ Les tests confirment l'accès et des réponses réelles pour ces cas, **pas** l'
 
 ### Données structurées par Gemini (ajout du 17 novembre 2026, après-midi)
 
-- Fichier `deploy_data/gemini_structured_literature.json` : 10 publications PubMed (Parkinson et Alzheimer) structurées par Gemini hors ligne, avec date et modèle de génération. Source : PubMed ; traitement : Gemini ; titre, URL et PMID repris de la source. Voir SPEC-004, section 15.
+- Fichier `deploy_data/gemini_structured_literature.json` : 55 publications PubMed (5 par maladie, 11 maladies neurologiques) structurées par Gemini hors ligne, avec date et modèle de génération. Source : PubMed ; traitement : Gemini ; titre, URL et PMID repris de la source. Voir SPEC-004, section 15.
 - Ces données dérivées par IA restent séparées des données sources (DATA-006) et sont étiquetées comme générées hors ligne.
